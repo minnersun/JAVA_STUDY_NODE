@@ -1,0 +1,26 @@
+<html>
+  <head>
+  	<title>单行文本框value属性</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction1()
+  		    {
+  		       var sString1 = document.myForm.myText.value;
+  		       alert(sString1);
+  		    }
+  		    function myFunction2()
+  		    {
+  		       document.myForm.myText.value = "单行文本框设置后内容";
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>单行文本框value属性</h1>
+  	<form name="myForm">
+  		<input type="text" name="myText" value="单行文本框的默认内容"><br>
+  		<input type="button" value="获取value值" onclick="myFunction1()">
+  		<input type="button" value="设置value值" onclick="myFunction2()">
+  	</form>
+  </body>
+</html>

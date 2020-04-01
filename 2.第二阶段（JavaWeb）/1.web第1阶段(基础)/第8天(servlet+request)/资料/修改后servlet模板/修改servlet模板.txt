@@ -1,0 +1,9 @@
+1. plugins/com.genuitec.eclipse.wizards.xxx.jar ---- 都是zip格式的
+2. 打开Jar包中的Templates文件夹既可以看到Servlet.java源代码，直接修改就可以了
+3. 修改好之后保存
+4. 重新启动Myeclipse即可以使用新的模板代码了 
+
+压缩包中com.genuitec.eclipse.wizards_8.5.0.me201003052220.jar 是改好的servlet模板jar文件 --- 将其放到MyEclipse8.5 common/plugins 中
+
+
+（注：可能需要删除的包   com.genuitec.eclipse.wizards_9.0.0.me201108091322)

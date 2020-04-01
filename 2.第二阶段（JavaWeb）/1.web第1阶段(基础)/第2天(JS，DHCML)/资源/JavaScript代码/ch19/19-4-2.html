@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+//父类
+function SuperClass() {
+this.supertest = superTest; //定义supertest方法
+}
+
+//子类
+function SubClass() {
+this.inheritFrom = SuperClass; //这里是继承的关键
+this.inheritFrom();
+this.subtest = subTest; //定义子类自己的方法
+}
+
+function superTest() {
+return "superTest";
+}
+
+function subTest() {
+return "subTest";
+}
+
+//实例化子类
+var newClass = new SubClass();
+
+alert(newClass.subtest()); // 调用方法 "subTest"
+alert(newClass.supertest()); // 调用 "superTest"
+
+</script>
+</body>
+</html>

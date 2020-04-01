@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>while循环结构语句</title>
+  </head>
+  <body>
+    <h1>while循环结构语句</h1>
+    <script language="JavaScript" type="text/javascript">
+    <!--
+      var nNumber=Math.floor(Math.random() * 100) + 1;
+      var guess=50;
+      var turns=0;
+      document.write(nNumber+"<br>");
+      while(guess!=nNumber)
+      {
+        turns++;
+  	if(guess>nNumber)
+  	{
+  	  document.write("太高了"+"<br>");
+  	  guess--;
+  	}
+  	  if(guess<nNumber)
+  	{
+  	  document.write("太低了"+"<br>");
+  	  guess++;
+  	}
+  	  if(guess==nNumber)
+  	{
+  	  document.write("恭喜你，你猜对了"+"<br>");
+  	  document.write("你一共猜了"+turns+"次");
+  	}
+      }
+    //-->
+    </script>
+  </body>
+</html>

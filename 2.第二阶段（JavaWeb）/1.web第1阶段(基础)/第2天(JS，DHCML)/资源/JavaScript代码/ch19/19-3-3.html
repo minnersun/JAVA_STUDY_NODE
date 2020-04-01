@@ -1,0 +1,33 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>about prototype</title>
+<script>
+var citys = new Array("beijing","shanghai","guangzhou");
+var local=new Array("CN","US","UK");
+</script>
+</head>
+<body>
+<script>
+Array.prototype.push = function() {
+        var currentLength = this.length;
+        for (var i = 0; i < arguments.length; i++) {
+            this[currentLength + i] = arguments[i];
+        }
+        return this.length;
+}
+local.push("JP","KR","RU");
+citys.push("xiamen","jinan","changchun");
+
+document.write("地区代码：");
+for(l in local){
+  document.write(local[l]+",");
+}
+document.write("<br>");
+
+document.write("城市：");
+for(c in citys){
+  document.write(citys[c]+",");
+}
+</script>
+</body>
+</html>

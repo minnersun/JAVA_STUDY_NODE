@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表格的斜线</title>
+</head>
+<script type="text/javascript">
+	function aline(x,y,color) {
+		//实际划线方法
+		document.write("<img border='0' style='position:absolute; left:"+(x+20)+";top:"+(y+20)+";background-color:"+color+"' width=1 height=1>")
+	}
+</script>
+
+<body leftmargin="10" topmargin="20">
+<table border="0" bgcolor="000000" cellspacing="1" width="400" align="center">
+<tr bgcolor="ffffff">
+	<td id="td1"></td>
+    <td>环境分</td>
+    <td>人文分</td>
+    <td>城市分</td>
+</tr>
+<tr bgcolor="ffffff">
+	<td>北京</td>
+    <td>90</td>
+    <td>98</td>
+    <td>95</td>
+</tr>
+<tr bgcolor="ffffff">
+	<td>南京</td>
+    <td>95</td>
+    <td>95</td>
+    <td>93</td>
+</tr>
+<tr bgcolor="ffffff">
+	<td>武汉</td>
+    <td>88</td>
+    <td>100</td>
+    <td>99</td>
+</tr>
+</table>
+<script type="text/javascript">
+function line(x1,y1,x2,y2,color) {
+
+	var temp;
+	if(x1>=x2){
+		temp = x1;
+		x1 = x2;
+		x2 = temp;
+		temp = y1;
+		y1 = y2;
+		y2 = temp;
+	}
+	for(var i=x1;i<=x2;i++) {
+		x = i;
+		y = (y2-y1)/(x2-x1)*(x-x1) + y1;
+		aline(x,y,color);
+	}
+}
+line(td1.offsetLeft, td1.offsetTop,td1.offsetLeft+td1.offsetWidth,td1.offsetTop+td1.offsetHeight,'#00ff00')
+</script>
+</body>
+</html>

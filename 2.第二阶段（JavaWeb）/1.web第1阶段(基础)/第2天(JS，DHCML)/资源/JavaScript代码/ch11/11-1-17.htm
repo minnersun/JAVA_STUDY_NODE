@@ -1,0 +1,45 @@
+<html>
+  <head>
+  	<title>显示多维数组</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		   function myFunction(table) 
+		   {
+			   document.write("<TABLE BORDER=ON>");
+			   document.write("<TH>数组</TH><TH>第一个元素</TH><TH>第二个元素</TH><TH>第三个元素</TH>");
+			   for(i=0; i<table.length; i++) 
+			   {
+			      document.write("<TR><TD>","第"+(i+1)+"个数组","</TD>");
+			      for(j=0; j<table[i].length; j++)
+			      {
+			         document.write("<TD>",table[i][j],"</TD>");
+			      }
+			      document.write("</TR>");
+			   }
+			   document.write("</TABLE>");
+		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>显示多维数组</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		    var myArray = new Array(3);
+		    myArray[0] = new Array(3);
+		    myArray[1] = new Array(3);
+		    myArray[2] = new Array(3);
+		    myArray[0][0] = "A1";
+		    myArray[0][1] = "A2";
+		    myArray[0][2] = "A3";
+		    myArray[1][0] = "B1";
+		    myArray[1][1] = "B2";
+		    myArray[1][2] = "B3";
+		    myArray[2][0] = "C1";
+		    myArray[2][1] = "C2";
+		    myArray[2][2] = "C3";
+		    myFunction(myArray);
+   		//-->
+  	</script>
+  </body>
+</html>

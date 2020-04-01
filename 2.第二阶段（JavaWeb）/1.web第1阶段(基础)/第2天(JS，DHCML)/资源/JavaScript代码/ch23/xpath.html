@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+<script >
+function createDocument() {
+	var aVersions = [ "MSXML2.DOMDocument.5.0",
+		"MSXML2.DOMDocument.4.0"," MSXML2.DOMDocument.3.0"
+		];
+	for (var i = 0; i < aVersions.length; i++) {
+		try {
+			var oXmlDom = new ActiveXObject(aVersions[i]);
+			return oXmlDom;
+		} catch (oError) {
+		//Do nothing
+		}
+	}
+	alert("MSXML 3.0 is not installed.");
+	throw new Error("MSXML 3.0 is not installed.");
+}
+</script>
+</head>
+<body>
+<script>
+oXmlDom = createDocument();
+oXmlDom.onreadystatechange = function ( ) {
+	if (oXmlDom.readyState == 4) {
+		var cAuthors = oXmlDom.documentElement.selectNodes("book/author");
+		if (cAuthors.length > 0) {
+			var strAuthors = "";
+			for(var i=0;i<cAuthors.length;i++){
+  				strAuthors=strAuthors + cAuthors[i].text +"\n";
+			}
+			alert(strAuthors);
+		}
+	}
+};
+oXmlDom.load("books3.xml");
+</script>
+</body>
+</html>

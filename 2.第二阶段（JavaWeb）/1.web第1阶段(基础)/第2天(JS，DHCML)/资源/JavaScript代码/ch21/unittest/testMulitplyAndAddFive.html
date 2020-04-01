@@ -1,0 +1,26 @@
+<html>
+ <head>
+  <title>这是一个测试页，测试函数multiplyAndAddFive(value1, value2)</title>
+<!— 在所有JavaScript之前先包含 jsUnitCore.js 文件 -->
+  <script language="javascript" src="jsunit/app/jsUnitCore.js"></script>
+  <script language="javascript" src="myJsScripts.js"></script>
+ </head>
+ <body>
+  <script language="javascript">
+    function testWithValidArgs() {
+        assertEquals("2 乘 3 加 5 等于 11", 11, multiplyAndAddFive(2, 3));
+        assertEquals("测试负数的情况", -15, multiplyAndAddFive(-4, 5));
+    }
+    function testWithInvalidArgs() {
+        assertNull("给一个null值，得到的结果应该是一个null", multiplyAndAddFive(2, null));
+        assertNull("给一个字符串作为参数，得到的也是nul", multiplyAndAddFive(2, "a string"));
+    }
+    function testStrictReturnType() {
+        assertNotEquals("应该返回一个number类型，而不是字符串", "11", multiplyAndAddFive(2, 3));
+    }
+    function testWithUndefinedValue() {
+        assertNull("如果给了一个未定义的参数，返回应该是null", multiplyAndAddFive(2, JSUNIT_UNDEFINED_VALUE));
+    }
+  </script>
+ </body>
+</html>

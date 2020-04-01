@@ -1,0 +1,21 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>循环获取对象属性</title>
+</head>
+<body>
+<h1>循环获取对象属性
+  <script>
+	var testObj = {
+		prop1 : "hello",
+		prop2 : "hello2",
+		prop3 : new Array("hello",1,2)
+	}
+
+	for(x in testObj)
+	{
+		alert( x + "-" + testObj[ x ] );
+	}
+  </script>
+</h1>
+</body>
+</html>

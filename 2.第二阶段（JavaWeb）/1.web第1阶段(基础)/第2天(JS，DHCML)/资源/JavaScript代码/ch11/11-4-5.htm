@@ -1,0 +1,31 @@
+<html>
+  <head>
+  	<title>自定义数组方法</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		    function myFunction(vItem,iIndex)
+		    {
+			    this.splice(iIndex, 0, vItem);
+			}
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>自定义数组方法</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		    var myArray = new Array(7);
+			myArray[0] = "Sunday";
+			myArray[1] = "Monday";
+			myArray[2] = "Tuesday";
+			myArray[3] = "Wednesday";
+			myArray[4] = "Thursday";
+			myArray[5] = "Friday";
+			myArray[6] = "Saturday";
+			Array.prototype.insertAt=myFunction;
+			myArray.insertAt("noday",2);
+			document.write("<h3>使用insertAt方法后数组为："+myArray);
+   		//-->
+  	</script>
+  </body>
+</html>

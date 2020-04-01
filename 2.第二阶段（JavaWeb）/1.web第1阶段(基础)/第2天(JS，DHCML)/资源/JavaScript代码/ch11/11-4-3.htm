@@ -1,0 +1,39 @@
+<html>
+  <head>
+  	<title>自定义数组方法</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		    function myFunction(vItem)
+		    {
+			    for (var i=0; i <this.length; i++) 
+			    {
+			        if (this[i] == vItem) {
+			            return true;
+			        }
+			    }
+			    return false;
+			}
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>自定义数组方法</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		    var myArray = new Array(7);
+			myArray[0] = "Sunday";
+			myArray[1] = "Monday";
+			myArray[2] = "Tuesday";
+			myArray[3] = "Wednesday";
+			myArray[4] = "Thursday";
+			myArray[5] = "Friday";
+			myArray[6] = "Saturday";
+			Array.prototype.contains=myFunction;
+			var nNumber1 = myArray.contains("Monday")
+			document.write("<h3>使用contains方法结果为："+nNumber1);
+			var nNumber2 = myArray.contains("Noday")
+			document.write("<h3>使用contains方法结果为："+nNumber2);
+   		//-->
+  	</script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+  <head>
+  	<title>打开文档和关闭文档</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    var newWindow;
+  		    function myFunction1()
+  		    {
+  		       newWindow = window.open("14-3-5.htm","name");
+  		    }
+  		    function myFunction2()
+  		    {
+  		       newWindow.document.open();
+  		       newWindow.document.write("<html><head><title>新文档</title></head>");
+  		       newWindow.document.write("<body><h1>新文档内容</h1></body></html>");
+  		       newWindow.document.close();
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>打开文档和关闭文档</h1>
+  	<form action="">
+  		<input type="button" value="打开新窗口" onclick="myFunction1()">
+  		<input type="button" value="打开新文档" onclick="myFunction2()">
+  	</form>
+  </body>
+</html>

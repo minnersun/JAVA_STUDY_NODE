@@ -1,0 +1,23 @@
+<html>
+  <head>
+  	<title>获取具体按键</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction()
+  		    {
+  		       var sString1 = event.keyCode;
+  		       document.myForm.myText1.value = sString1;
+  		       var sString2 = String.fromCharCode(sString1);
+  		       document.myForm.myText2.value = sString2;
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body onkeydown="myFunction()">
+  	<h1>获取具体按键</h1>
+  	<form name="myForm">
+  		UniCode字符为：<input type="text" name="myText1"><br>
+  		获取具体按键：<input type="text" name="myText2">
+  	</form>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<books>
+<book isbn="0471777781">
+	<title>Professional JavaScript</title>
+	<author>Peng yong qing, Smart</author>
+	<price>60.00</price>
+</book>
+<book isbn="0471777781">
+	<title>Professional  Java</title>
+	<author>Mike</author>
+	<price>50.00</price>
+</book>
+<book isbn="0764557599">  
+	<title>Professional  CorelDRAW</title>
+	<author>Smart</author>
+	<price>55.00</price>
+</book>
+<book isbn="1861002025">
+	<title>Professional  C++</title>
+	<author>Sam</author>
+	<price>87.00</price>
+</book>
+</books>

@@ -1,0 +1,24 @@
+<html>
+  <head>
+  	<title>错误事件</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction(sMessage, sUrl, sLine)
+  		    {
+  		       document.write("<h3>错误类型为："+sMessage);
+  		       document.write("<h3>错误的URL为："+sUrl);
+  		       document.write("<h3>错误位置为："+sLine);
+  		       return true;
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body onload="noFunction()">
+  	<h1>错误事件</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		     window.onerror=myFunction;
+   		//-->
+  	</script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试是否可以复制和粘贴</title>
+<script type="text/javascript">
+function cal(str) {
+	//测试中文字符的正则
+	var re = /[\u4E00-\u9FA5]/g;	
+	//使用正则判断是否存在中文
+	if(re.test(str)) {
+		//返回中文个数
+		return str.match(re).length;
+	}else {
+		return 0;	
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="text" onblur="alert(cal(this.value))" />
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+  <head>
+  	<title>其他方式创建数组对象</title>
+  </head>
+  <body>
+  	<h1>其他方式创建数组对象</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    var nNumber=10;
+  		    var myArray = new Array(nNumber);
+			for(var i=0;i<nNumber;i++)
+			{
+			    var myNumber1=Math.random();
+			    var myNumber2=myNumber1*100;
+			    var myNumber3=Math.floor(myNumber2);
+			    if(myNumber3<10){
+			       myArray[i]="0"+myNumber3;
+			    }else{
+			       myArray[i]=myNumber3;
+			    }
+			}
+			document.write("<h3>数组中的元素有："+myArray);
+   		//-->
+  	</script>
+  </body>
+</html>

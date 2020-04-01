@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+<script src="firefox_xml.js"></script>
+</head>
+<body>
+<script>
+var http_request = new XMLHttpRequest();
+
+http_request.onreadystatechange = onReceived;
+function onReceived(){
+
+	var xmlDoc = http_request.responseXML;		
+	alert("received:");
+	var nsResolver = xmlDoc.createNSResolver( xmlDoc.ownerDocument == null ? xmlDoc.documentElement : xmlDoc.ownerDocument.documentElement);
+
+	var oResult = xmlDoc.evaluate('book/title', xmlDoc.documentElement, nsResolver, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null );
+
+	if (oResult != null) {
+		var oElement;
+		while (oElement= oResult.iterateNext() ) {
+			document.write("Title:"+oElement.childNodes[0].nodeValue+"<br>");			
+		}
+	}else{
+		alert("no data");
+	}
+}
+
+http_request.open("GET", "books3.xml", false); 
+http_request.send(null);
+</script>
+</body>
+</html>

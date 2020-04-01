@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Dojo: Hello World!</title>
+    <style type="text/css">
+        @import "dojoroot/dijit/themes/tundra/tundra.css";
+        @import "dojoroot/dojo/resources/dojo.css";
+    </style>
+  </head>
+  <body class="tundra">
+  <button dojoType="dijit.form.Button" id="helloButton">Hello World!
+  	<script type="dojo/method" event="onClick">
+   		dojo.xhrGet({
+        	url: 'response.txt',
+        	load: helloCallback,
+        	error: helloError
+   		});
+	</script>
+  </button>
+  </body>
+</html>

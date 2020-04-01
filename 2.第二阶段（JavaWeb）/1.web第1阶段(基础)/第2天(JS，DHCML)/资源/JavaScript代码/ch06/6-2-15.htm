@@ -1,0 +1,37 @@
+<html>
+  <head>
+  	<title>函数返回值的使用</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		  function myFirstFunction()
+  		  {
+              var myArray = new Array(4);
+              myArray[0] = "A";
+              myArray[1] = "B";
+              myArray[2] = "C";
+              myArray[3] = "D";
+              return myArray;
+  		  }
+  		  function mySecondFunction(aArray)
+  		  {
+  		      var sString = "";
+              for (var i = 0; i < aArray.length; i++)
+              {
+                   sString += aArray[i] + " ";
+              }
+              return sString; 
+  		  }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>函数返回值的使用</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		  var mArray = myFirstFunction();
+  		  var msString=mySecondFunction(mArray);
+          document.write("<h1>数组的元素排列为："+msString);
+   		//-->
+  	</script>
+  </body>
+</html>

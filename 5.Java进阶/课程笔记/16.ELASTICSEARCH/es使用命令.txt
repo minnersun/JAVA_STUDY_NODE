@@ -1,0 +1,76 @@
+索引管理
+1新建索引
+curl -XPUT http://10.9.17.153:9200/index01
+
+2 读写权限
+curl -XPUT -d '{"blocks.read":false}' http://10.9.17.153:9200/index01/_settings
+
+3 查看索引
+单个
+curl -XGET http://10.9.17.153:9200/index01/_settings
+多个
+curl -XGET http://10.9.17.153:9200/index01,blog/_settings
+
+4 删除索引
+curl -XDELETE http://10.9.17.153:9200/index02
+
+5打开关闭索引
+关闭
+#curl -XPOST http://10.9.17.153:9200/index01/_close
+打开
+#curl -XPOST http://10.9.17.153:9200/index01/_open
+
+多个
+#curl -XPOST http://10.9.17.153:9200/index01,blog,index02/_close
+#curl -XPOST http://10.9.17.153:9200/index01,blog,index02/_open
+
+文档管理
+1新建文档
+curl -XPUT -d '{"id":1,"title":"es简介","content":"es好用好用真好用"}' http://10.9.17.153:9200/book/article/1
+
+2 获取文档
+curl -XGET http://10.9.17.153:9200/index01/article/1
+
+3 获取多个文档
+curl -XGET  -d '{"docs":[{"_index":"index01","_type":"article","_id":"1"},{"_index":"index01","_type":"article","_id":"2"}]}' http://10.9.17.153:9200/_mget
+
+4删除文档
+curl -XDELETE http://10.9.17.153:9200/index01/article/1
+
+搜索
+1 查询所有文档
+准备一些文档数据
+
+curl -XPUT -d '{"id":1,"title":"es简介","content":"es好用好用真好用"}' http://10.9.17.153:9200/index01/article/1
+curl -XPUT -d '{"id":1,"title":"java编程思想","content":"这就是个工具书"}' http://10.9.17.153:9200/index01/article/2
+curl -XPUT -d '{"id":1,"title":"大数据简介","content":"你知道什么是大数据吗，就是大数据"}' http://10.9.17.153:9200/index01/article/3
+
+2 match_all
+curl -XGET http://10.9.17.153:9200/index01/_search -d '{"query": {"match_all": {}}}'
+
+3 term query
+curl -XGET http://10.9.17.153:9200/index01/_search -d '{"query":{"term":{"title":"java"}}}'
+curl -XGET http://10.9.17.153:9200/index01/_search -d '{"query":{"term":{"title":"java编程思想"}}}'
+curl -XGET http://10.9.17.153:9200/jtdb_item/_search -d '{"query":{"term":{"title":"双卡双"}}}'
+
+4 match query
+curl -XGET http://10.9.17.153:9200/index01/_search -d '{"query":{"match":{"title":"java编程思想"}}}'
+
+logstash启动
+logstash -e 'input{stdin{}}output{stdout{codec=>rubydebug}}'
+
+
+IK分词器
+curl -XPOST http://10.9.17.153:9200/_analyze -d '{"analyzer":"ik","text":"JAVA编程思想"}'
+http://10.9.17.153:9200/index01/_analyze?analyzer=ik&text=%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD
+curl 
+
+IK分词器
+curl -XPUT -d '{"id":1,"kw":"我们都爱中华人民共和国"}' http://10.9.17.153:9200/haha1/haha/1
+
+查看mapping
+curl -XGET http://10.9.17.153:9200/jtdb_item/tb_item/_mapping
+
+curl -XPUT -d '{"mappings":{"article":{"properties":{"id":{"type":"keyword"},"title":{"type":"text"},"content":{"type":"text"}}}}}' http://10.9.17.153:9200/book/
+
+

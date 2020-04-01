@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>throw抛出异常语句</title>
+  </head>
+  <body>
+    <h1>throw抛出异常语句</h1>
+    <script language="JavaScript" type="text/javascript">
+    <!--
+      var nNumber;
+      try
+      {
+  	nNumber=eval(prompt("请输入一个一位数字",""));
+  	if(nNumber<1||nNumber>9)
+        {
+  	  throw "<h1>请输入一个一位数字";
+  	}
+      }
+      catch(e)
+      {
+  	document.write(e);
+  	document.write("<h1>请正确输入一个数字");
+      }
+      finally
+      {
+  	document.write("<h1>这是一个异常处理程序");
+      }
+    //-->
+    </script>
+  </body>
+</html>

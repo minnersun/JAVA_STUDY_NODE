@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>为链接提供下拉菜单</title>
+<script type="text/javascript">
+	function listmenu() {
+		document.all.sonMain.style.display = (document.all.sonMain.style.display == 'none')?'':'none';	
+	}
+</script>
+</head>
+
+<body>
+<div id="main" style="color:blue; margin:4px 4px 4px 60px;" onclick="listmenu()">
+<a href="#">我的朋友</a></div>
+<div id="sonMain" style="display:none; margin:4px 4px 4px 70px;">
+	<a href="#">陈立飞</a><br />
+    <a href="#">齐宁</a><br />
+    <a href="#">韩少杰</a><br />
+    <a href="#">赵瑞峰</a><br />
+    <a href="#">张硕</a><br /></div>
+</body>
+</html>

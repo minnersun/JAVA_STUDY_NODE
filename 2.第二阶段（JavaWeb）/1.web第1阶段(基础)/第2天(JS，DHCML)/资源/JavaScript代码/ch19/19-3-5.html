@@ -1,0 +1,20 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+</head>
+<body>
+<script>
+var aString="字符串用toString没什么意义，返回的还是对象本身";
+var aNumber = 10;
+var anArray = new Array("Aa","Bb","Cc","Dd");
+var anObject = new Object();
+anObject.pro1 = "Properties 1";
+anObject.pro2 = "Properties 2";
+anObject.pro3 = "Properties 3";
+</script>
+<p>字符串toString():<script>document.write(aString.toString());</script></p>
+<p>数字toString():<script>document.write(aNumber.toString());</script></p>
+<p>数组toString():<script>document.write(anArray.toString());</script></p>
+<p>普通对象toString():<script>document.write(anObject.toString());</script></p>
+</body>
+</html>

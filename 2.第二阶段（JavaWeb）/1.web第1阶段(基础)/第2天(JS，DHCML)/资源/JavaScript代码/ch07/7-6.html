@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>JS Test</title>
+		<script language="JavaScript">
+		<!--
+			function validate() {
+				var doc = document.forms[0];
+				var flag = true;
+				alert('Script starting, flag == ' + flag);
+				alert('Script starting, Full name == ' + doc.fullName.value);
+				alert('Script starting, Contact number == ' + doc.contactNumber.value);
+				if (doc.fullName.value == '') {
+					alert('First check, Full Name is empty.');
+					flag = false;
+				}
+				if (doc.contactNumber.value == '') {
+					alert('Second check, Contact Number is empty.');
+					flag = false;
+				}
+				if (flag) {
+					alert('Validation successful, document will be submitted.');
+					doc.submit()
+				} else {
+					alert('Enter values before submitting.');
+				}
+			}
+		-->
+		</script>
+	</head>
+	<body>
+		<form id="frmTest">
+			Name: <input name="fullName" type="text" /><br />
+			Address: <input name="contactNumber" type="text" /><br />
+			<input type="button" value="Submit" onclick="validate();" />
+		</form>
+	</body>
+</html>

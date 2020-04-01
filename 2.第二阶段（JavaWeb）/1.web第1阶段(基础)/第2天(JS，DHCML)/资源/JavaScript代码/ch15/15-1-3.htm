@@ -1,0 +1,26 @@
+<html>
+  <head>
+  	<title>访问表单及元素对象</title>
+  </head>
+  <body>
+  	<h1>访问表单及元素对象</h1>
+  	<form name="myForm1">
+  		<input type="text" name="myText1" value="这里是第一个文本框">
+  		<input type="text" name="myText2" value="这里是第二个文本框">
+  	</form>
+  	<form name="myForm2">
+  		<input type="button" name="button1" value="A按钮">
+  		<input type="button" name="button2" value="B按钮">
+  		<input type="button" name="button3" value="C按钮">
+  	</form>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    document.write(document.myForm1.myText1.value+" ");
+  		    document.write(document.myForm1.elements["myText2"].value+"<br>");
+  		    document.write(document.myForm2.elements[0].value+" ");
+  		    document.write(document.myForm2.elements[1].value+" ");
+  		    document.write(document.myForm2.elements[2].value+" ");
+   		//-->
+  	</script>
+  </body>
+</html>

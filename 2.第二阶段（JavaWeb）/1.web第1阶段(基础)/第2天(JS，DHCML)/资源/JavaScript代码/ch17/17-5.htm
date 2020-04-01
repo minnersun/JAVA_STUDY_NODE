@@ -1,0 +1,24 @@
+<html>
+  <head>
+  	<title>对框架对象的访问</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction()
+  		    {
+  		       var newWindow = open("","name");
+  		       for(var i=0;i<window.frames.length;i++)
+  		       {
+  		          newWindow.document.write("<h3>窗口中的框架名称为："+window.frames[i].name);
+  		       }
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <frameset cols="25%,*" onload="myFunction()">
+  	<frame name="myFrame1" src="17-1-1.htm">
+  	<frameset rows="40%,*">
+  		<frame name="myFrame2" src="17-1-2.htm">
+  		<frame name="myFrame3" src="17-1-2.htm">
+  	</frameset>
+  </frameset>
+</html>

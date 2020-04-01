@@ -1,0 +1,17 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div id="ourTest">this is <a href=#>a link</a> and an image: <img src="hello.jpg"></div>
+<div><a href="#" onclick="addText();">点击这里，往上面添加文本</a></div>
+<script>
+function addText(){
+var newText = document.createTextNode("our new text,");
+var ourDiv  = document.getElementById("ourTest");
+ourDiv.insertBefore(newText, ourDiv.childNodes[2]);
+}
+</script>
+</body>
+</html>

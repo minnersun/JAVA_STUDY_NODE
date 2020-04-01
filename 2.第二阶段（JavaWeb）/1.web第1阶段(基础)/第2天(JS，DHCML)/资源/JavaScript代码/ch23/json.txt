@@ -1,0 +1,24 @@
+{ "classinfo" :
+    {
+        "students" : [
+            {
+                "name" : "Michael Smith",
+                "average" : 99.5,
+                "age" : 17,
+                "graduating" : true
+            },
+            {
+                "name" : "Steve Johnson",
+                "average" : 34.87,
+                "age" : 17,
+                "graduating" : false
+            },
+            {
+                "name" : "Rebecca Young",
+                "average" : 89.6,
+                "age" : 18,
+                "graduating" : true
+            }
+        ]
+    }
+}

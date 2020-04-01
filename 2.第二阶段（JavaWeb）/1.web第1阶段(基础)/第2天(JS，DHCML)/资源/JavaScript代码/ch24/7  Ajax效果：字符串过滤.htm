@@ -1,0 +1,135 @@
+<HTML><HEAD><TITLE>过滤字符实例</TITLE>
+<script type="text/javascript">
+function filterlist(selectobj) {
+  // 过滤对象
+  this.selectobj = selectobj;
+
+  //要过滤得字符-i表示忽略大小写，""表示不忽略
+  this.flags = 'i';
+  // 要过滤的项-选择是文本还是值
+  this.match_text = true;
+  this.match_value = false; 
+  //调试参数
+  this.show_debug = false;
+  //初始化的方法
+  this.init = function() {
+    if (!this.selectobj) return this.debug('没有实现过滤的控件');
+    if (!this.selectobj.options) return this.debug('过滤控件中没有内容');
+    //制作选择项的副本
+    this.optionscopy = new Array();
+    if (this.selectobj && this.selectobj.options) {
+      for (var i=0; i < this.selectobj.options.length; i++) {
+        // 创建一个新的选择项对象
+        this.optionscopy[i] = new Option();
+        // 设置选择项的文本
+        this.optionscopy[i].text = selectobj.options[i].text;
+        // 设置选择项的值
+        if (selectobj.options[i].value) {
+          this.optionscopy[i].value = selectobj.options[i].value;
+        } else {
+          this.optionscopy[i].value = selectobj.options[i].text;
+        }
+      }
+    }
+  }
+  this.reset = function() {   //重置选择项
+    this.set('');
+  }
+
+   //实现过滤的方法
+  this.set = function(pattern) {
+    var loop=0, index=0, regexp, e;
+    if (!this.selectobj) return this.debug('没有实现过滤的控件');
+    if (!this.selectobj.options) return this.debug('过滤控件中没有内容');
+
+    // 清空列表中的内容
+    this.selectobj.options.length = 0;
+
+    // 使用正则实现字符过滤-初始化正则
+    try {
+      regexp = new RegExp(pattern, this.flags);
+
+    } catch(e) {
+      if (typeof this.hook == 'function') {
+        this.hook();
+      }
+      return;
+    }
+    // 循环添加过滤后的结果
+    for (loop=0; loop < this.optionscopy.length; loop++) {
+      // 定义选择项
+      var option = this.optionscopy[loop];
+      // 实现正则式过滤
+      if ((this.match_text && regexp.test(option.text)) ||
+          (this.match_value && regexp.test(option.value))) {
+        // 使用过滤结果创建新选择项
+
+        this.selectobj.options[index++] =
+          new Option(option.text, option.value, false);
+      }
+    }
+    if (typeof this.hook == 'function') {
+      this.hook();
+    }
+  }
+
+  //设置正则表达式的过滤标志
+  this.set_ignore_case = function(value) {
+    if (value) {
+      this.flags = 'i';
+    } else {
+      this.flags = '';
+    }
+  }
+  this.debug = function(msg) {    //调试方法   
+    if (this.show_debug) {
+      alert('过滤结果: ' + msg);
+    }
+  }
+  this.init();                        //调用初始化方法
+}
+</script>
+</HEAD>
+<BODY>
+<H1>过滤字符实例</H1>
+<FORM name=myform action=""><SELECT size=5 name=myselect> <OPTION>Aefdf 
+  Rsses<OPTION>Lbadmn Adjlf<OPTION>Monica Betty<OPTION>Daniel 
+  Jack<OPTION>Bill Gayes<OPTION>Lama Tampel<OPTION>Natty
+  Lees<OPTION>Harry J. Leoo<OPTION>Matty McColm<OPTION>Carrie-Anne 
+  Moss<OPTION>Collin Chou<OPTION>Genevieve O'Reilly<OPTION>Harold Perrineau 
+  Jr.<OPTION>Jada Pinkett Smith<OPTION>Adrian Rayment<OPTION>Neil 
+  Rayment<OPTION>Bruce Spence<OPTION>Hugo Weaving<OPTION>Lambert 
+  Wilson<OPTION>Anthony Wong</OPTION></SELECT>
+<SCRIPT type=text/javascript>
+var myfilter = new filterlist(document.myform.myselect);  //调用过滤的方法
+</SCRIPT>
+ 
+<P>过滤： <A title="Clear the filter" 
+href="javascript:myfilter.reset()">重置</A> <A 
+title="Show items starting with A" href="javascript:myfilter.set('^A')">A</A> <A 
+title="Show items starting with B" href="javascript:myfilter.set('^B')">B</A> <A 
+title="Show items starting with C" href="javascript:myfilter.set('^C')">C</A> <A 
+title="Show items starting with D" href="javascript:myfilter.set('^D')">D</A> <A 
+title="Show items starting with E" href="javascript:myfilter.set('^E')">E</A> <A 
+title="Show items starting with F" href="javascript:myfilter.set('^F')">F</A> <A 
+title="Show items starting with G" href="javascript:myfilter.set('^G')">G</A> <A 
+title="Show items starting with H" href="javascript:myfilter.set('^H')">H</A> <A 
+title="Show items starting with I" href="javascript:myfilter.set('^I')">I</A> <A 
+title="Show items starting with J" href="javascript:myfilter.set('^J')">J</A> <A 
+title="Show items starting with K" href="javascript:myfilter.set('^K')">K</A> <A 
+title="Show items starting with L" href="javascript:myfilter.set('^L')">L</A> <A 
+title="Show items starting with M" href="javascript:myfilter.set('^M')">M</A> <A 
+title="Show items starting with N" href="javascript:myfilter.set('^N')">N</A> <A 
+title="Show items starting with O" href="javascript:myfilter.set('^O')">O</A> <A 
+title="Show items starting with P" href="javascript:myfilter.set('^P')">P</A> <A 
+title="Show items starting with Q" href="javascript:myfilter.set('^Q')">Q</A> <A 
+title="Show items starting with R" href="javascript:myfilter.set('^R')">R</A> <A 
+title="Show items starting with S" href="javascript:myfilter.set('^S')">S</A> <A 
+title="Show items starting with T" href="javascript:myfilter.set('^T')">T</A> <A 
+title="Show items starting with U" href="javascript:myfilter.set('^U')">U</A> <A 
+title="Show items starting with V" href="javascript:myfilter.set('^V')">V</A> <A 
+title="Show items starting with W" href="javascript:myfilter.set('^W')">W</A> <A 
+title="Show items starting with X" href="javascript:myfilter.set('^X')">X</A> <A 
+title="Show items starting with Y" href="javascript:myfilter.set('^Y')">Y</A> <A 
+title="Show items starting with Z" href="javascript:myfilter.set('^Z')">Z</A> 
+</P></FORM></BODY></HTML>

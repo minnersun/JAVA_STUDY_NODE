@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>倒计时显示</title>
+<script type="text/javascript">
+	var deadline = new Date("08/08/2012");
+	var symbol="2012年8月8日";
+	var now = new Date();
+	var leave = deadline.getTime() - now.getTime();
+	var day = Math.floor(leave / (1000*60*60*24));
+	if(day > 0) {
+		document.write("今天离" + symbol + "还有" + day + "天")	
+	} else if(day ==0) {
+		document.write("只剩最后一天了");
+	} else {
+		document.write("已经超过了所定时间");
+	}
+</script>
+</head>
+
+<body>
+</body>
+</html>

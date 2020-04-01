@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>计算用户浏览网页的时间</title>
+<script type="text/javascript">
+	var pageOpenTime = new Date();
+	function goodbye() {
+		var pageCloseTime = new Date();
+		var minutes = (pageCloseTime.getMinutes() - pageOpenTime.getMinutes());
+		var seconds = (pageCloseTime.getSeconds() - pageOpenTime.getSeconds());
+		var time = (seconds + (minutes * 60));
+		alert("总共停留了" + time + "秒，欢迎下次再来");
+	}
+</script>
+</head>
+
+<body onunload="goodbye()">
+</body>
+</html>

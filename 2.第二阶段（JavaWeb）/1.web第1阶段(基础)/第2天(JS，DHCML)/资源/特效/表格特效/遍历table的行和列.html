@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>遍历table的行和列</title>
+<script type="text/javascript">
+	function viewCell(){
+		var count = 1;
+		for(var i=0;i<document.all.tb.rows.length;i++) {
+			for(var j=0;j<document.all.tb.rows(i).cells.length;j++) {
+				document.all.tb.rows(i).cells(j).innerText = count;
+				count++;
+			}
+		}
+	}
+</script>
+</head>
+
+<body onload="viewCell()">
+<table id="tb" border="1" width="500" align="center">
+	<tr>	
+    	<th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr>
+    	<td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+    </tr>
+     <tr>
+    	<td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+    </tr>
+     <tr>
+    	<td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+    </tr>
+     <tr>
+    	<td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+    </tr>
+</table>
+</body>
+</html>

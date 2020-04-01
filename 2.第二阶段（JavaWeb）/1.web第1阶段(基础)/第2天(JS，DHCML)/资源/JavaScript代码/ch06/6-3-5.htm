@@ -1,0 +1,26 @@
+<html>
+  <head>
+  	<title>函数对象caller属性的使用</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		  function myFirstFunction()
+  		  {
+  		       document.write("<h3>"+myFirstFunction.caller);
+  		  }
+  		  function mySecondFunction()
+  		  {
+  		       myFirstFunction();
+  		  }
+  		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>函数对象caller属性的使用</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		  mySecondFunction();
+  		  document.write("<h3>"+myFirstFunction.caller);
+   		//-->
+  	</script>
+  </body>
+</html>

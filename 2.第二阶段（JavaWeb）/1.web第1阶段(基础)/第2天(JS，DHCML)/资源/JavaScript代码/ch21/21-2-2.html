@@ -1,0 +1,90 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Debug in Firebug 02</title>
+<script>
+<!--
+__xmlHttp = new XMLHttpRequest();
+
+
+function readCsvFile(url){
+  // summary:  读取CSV文件数据
+  // String url : 文件的URL地址
+  // return: 返回读取的文本内容
+
+  	__xmlHttp.open("GET", url, true);
+	// 把loadData 函数设置为onreadystatechange的触发函数
+	// 文件装载完后，会自动调用loadData函数
+  	__xmlHttp.onreadystatechange = loadData;
+  	// Send the request
+ 	__xmlHttp.send(null);
+}
+
+function loadData(){
+	// summary: 装载__xmlHttp读取的数据
+	// return: 无返回
+	
+	if (__xmlHttp.readyState == 4) {
+	    var tempData = new Array();
+    	var response = __xmlHttp.responseText;
+		var lines=response.split("\n");
+		for(var i=0;i<lines.length;i++){
+			var splitLine=lines[i].split(",");
+			tempData.push(splitLine);
+		}
+		showCsvTable(tempData);
+	}
+}
+
+function showCsvTable(datas){
+	//summary: 把CSV文件的数据显示为标准表格
+	//         这个函数是由 loadData 函数调用的。
+	//String[][] datas: 字符串数组
+	//return: 无返回
+	
+	var dataTable=document.getElementById("dataTable");
+	// 先用tmpContent建立好要显示的内容
+	var tmpContent="<table width='100%'>\n";
+	for(var i=0;i<datas.length;i++){
+		var line = datas[i];
+		tmpContent+="<tr>\n";
+		for(var j=0;j<line.length;j++){
+			tmpContent+="<td>"+line[j]+"</td>";
+		}
+		tmpContent+="</tr>\n";
+	}
+	tmpContent+="</table>\n";
+	// 最后才一次性把内容赋值给innerHTML
+	dataTable.innerHTML=tmpContent;
+}
+-->
+</script>
+<style type="text/css">
+<!--
+#dataArea {
+	background-color: #FFFF66;
+	padding: 10px;
+	border: 2px solid #999999;
+}
+table {
+	border: 2px solid #000000;
+	margin: 0px;
+	padding: 0px;
+}
+td {
+	border: 1px solid #000000;
+}
+
+-->
+</style>
+</head>
+<body>
+<div id="dataArea">
+  <p>下面显示从其他文件读入的数据：</p>
+  <p id="dataTable">&nbsp;</p>
+</div>
+<script>
+readCsvFile("./contect.csv");
+</script>
+</body>
+</html>

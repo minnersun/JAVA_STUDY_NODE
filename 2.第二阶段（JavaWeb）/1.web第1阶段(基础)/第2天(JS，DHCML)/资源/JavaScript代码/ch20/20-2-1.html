@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>
+  Get All Links
+</title>
+<script language="javascript">
+  var elementName = ""; // 全局变量,保存超链接地址
+  function getAllLinks( node )  {
+    var total = 0; // 计算总共有多少超链接
+   
+    // nodeType 判断该节点是否为元素节点,1表示为元素节点
+    // tagName 判断该节点是否是超链接
+    if ( node.nodeType == 1 && node.tagName == "A" ) {
+       total += 1; // 超链接总数加1
+      // 保存超链接的地址
+      // node.getAttribute("href")获得该属性的值
+      elementName = elementName + node.getAttribute("href") + "\r\n";
+    }
+
+    // 获得node的全部子节点
+    var children = node.childNodes;
+  
+    for ( var i = 0; i < children.length; i++ )    {
+        // 在每个子节点上进行递归操作,以遍历HTML文档所有节点
+        total += getAllLinks( children[i] );
+    }
+    return total;  // 返回该节点超链接个数
+  }
+</script>
+</head>
+
+<body>
+ <a href="javascript:void(0)" onClick="alert('超链接总数:' + getAllLinks(document) +'\r\n 全部超链接地址如下: \r\n' + elementName); elementName='';"> 开始统计超链接个数 </a>
+ <table border="1">
+   <tr>
+     <td><a href="http://www.google.com">google </a></td>
+   </tr>
+   <tr>
+     <td><a href="http://www.163.com">163</a></td>
+   </tr>
+   <tr>
+     <td><a href="http://smartdio.com"> 小麦工作室</a></td>
+   </tr>
+ </table>
+</body>
+</html>

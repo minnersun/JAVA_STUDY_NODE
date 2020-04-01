@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>取得控件的绝对位置</title>
+<script language="javascript">
+function getAddress(e){
+	var t = e.offsetTop;
+	var l = e.offsetLeft;
+	while(e=e.offsetParent){
+		t += e.offsetTop; //获取x坐标
+		l += e.offsetLeft; //获取y坐标
+	}
+	alert("x的坐标是："+t+"      y的坐标是："+l);
+}
+</script>
+</head>
+
+<body>
+<input id="button" type="button" value="坐标" onclick="getAddress(this)"  />
+</body>
+</html>

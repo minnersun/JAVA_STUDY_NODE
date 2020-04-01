@@ -1,0 +1,54 @@
+<html>
+  <head>
+  	<title>显示英文月份和中文星期</title>
+  </head>
+  <body>
+  	<h1>显示英文月份和中文星期</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    var myMonth=new Array(12);
+  		    myMonth[0] = "January";
+  		    myMonth[1] = "February";
+  		    myMonth[2] = "March";
+  		    myMonth[3] = "April";
+  		    myMonth[4] = "May";
+  		    myMonth[5] = "June";
+  		    myMonth[6] = "July";
+  		    myMonth[7] = "August";
+  		    myMonth[8] = "September";
+  		    myMonth[9] = "October";
+  		    myMonth[10] = "November";
+  		    myMonth[11] = "December";
+  		    var myDay = new Array(7);
+  		    myDay[0] = "星期日";
+  		    myDay[1] = "星期一";
+  		    myDay[2] = "星期二";
+  		    myDay[3] = "星期三";
+  		    myDay[4] = "星期四";
+  		    myDay[5] = "星期五";
+  		    myDay[6] = "星期六";
+  		    var myDate = new Date();
+  		    var year = myDate.getYear();
+  		    var month = myDate.getMonth()+1;
+  		    var date = myDate.getDate();
+  		    var day = myDate.getDay();
+  		    document.write("<h3>今天是："+year+"年 "+myMonth[month-1]+" "+date+"日 "+myDay[day]);
+  		    var hour = myDate.getHours();
+  		    var minutes = myDate.getMinutes();
+  		    var seconds = myDate.getSeconds();
+  		    if(hour<12){
+  		        var sString="上午";
+  		    }else{
+  		        var sString="下午";
+  		    }
+  		    if(minutes<10){
+  		        minutes="0"+minutes;
+  		    }
+  		    if(seconds<10){
+  		        seconds="0"+seconds;
+  		    }
+  		    document.write("<h3>现在是："+sString+" "+hour+":"+minutes+":"+seconds+" ");
+   		//-->
+  	</script>
+  </body>
+</html>

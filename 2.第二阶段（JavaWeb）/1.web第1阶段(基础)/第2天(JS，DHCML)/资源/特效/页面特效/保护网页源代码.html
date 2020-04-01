@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>保护网页源代码</title>
+<script language="javascript">
+function clear() {
+	//获取文档原有内容
+	var source = document.body.innerHTML;
+	//打开文档
+	document.open();
+	//输出提示内容
+	document.write("代码已经被屏蔽");
+	//关闭文档 
+	document.close();
+	//文档标题
+	document.title = "看不到源代码";
+	//重新写入旧内容
+	document.body.innerHTML = source;
+}
+</script>
+</head>
+
+<body onload="clear()">
+<marquee>测试能否看到源码</marquee>
+</body>
+</html>
+
+<!-- 本例的原理是首先将内容保存在一个变量中，然后清空文档中的内容，最后在向文档中显示旧内容。 -- >

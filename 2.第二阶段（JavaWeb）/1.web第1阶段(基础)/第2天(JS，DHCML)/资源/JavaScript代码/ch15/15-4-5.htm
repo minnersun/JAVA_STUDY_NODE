@@ -1,0 +1,34 @@
+<html>
+  <head>
+  	<title>单选按钮</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction1()
+  		    {
+  		       document.myForm1.rd[0].checked=true;
+  		    }
+  		    function myFunction2()
+  		    {
+  		       document.myForm1.rd[1].checked=true;
+  		    }
+  		    function myFunction3()
+  		    {
+  		       document.myForm1.rd[2].checked=true;
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>请选择你最喜欢的爱好</h1>
+  	<form name="myForm1">
+  		<input type="radio" name="rd" checked>看书<br>
+  		<input type="radio" name="rd">上网<br>
+  		<input type="radio" name="rd">游戏<br>
+  	</form>
+  	<form name="myForm2">
+  		<input type="button" value="选择看书" onclick="myFunction1()">
+  		<input type="button" value="选择上网" onclick="myFunction2()">
+  		<input type="button" value="选择游戏" onclick="myFunction3()">
+  	</form>
+  </body>
+</html>

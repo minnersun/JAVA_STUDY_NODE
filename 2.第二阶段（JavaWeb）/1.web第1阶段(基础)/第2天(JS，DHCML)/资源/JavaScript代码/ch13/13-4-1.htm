@@ -1,0 +1,39 @@
+<html>
+  <head>
+  	<title>循环定时操作</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction()
+  		    {
+  		       var day = new Date();
+  		       var hours = day.getHours();
+  		       var minutes = day.getMinutes();
+  		       var seconds = day.getSeconds();
+  		       var sString = hours+":"+minutes+":"+seconds;
+  		       document.form.xunHuan.value=sString;
+  		    }
+  		    function myFunction2()
+  		    {
+  		       window.clearInterval(myInterval);
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>循环定时操作</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction3()
+  		    {
+  		       myInterval = window.setInterval("myFunction()",1000);
+  		    }
+   		//-->
+  	</script>
+  	<form action="" name="form">
+  		<input type="text" name="xunHuan"><br>
+  		<hr>
+  		<input type="button" value="开始" onclick=myFunction3()>
+  	    <input type="button" value="停止" onclick=myFunction2()>
+  	</form>
+  </body>
+</html>

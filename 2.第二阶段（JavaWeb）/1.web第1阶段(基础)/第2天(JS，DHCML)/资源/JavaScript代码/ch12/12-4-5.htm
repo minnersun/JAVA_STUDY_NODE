@@ -1,0 +1,47 @@
+<html>
+  <head>
+  	<title>显示日期时间提示</title>
+  </head>
+  <body>
+  	<h1>显示日期时间提示</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    var myDay = new Array(7);
+  		    myDay[0] = "星期日";
+  		    myDay[1] = "星期一";
+  		    myDay[2] = "星期二";
+  		    myDay[3] = "星期三";
+  		    myDay[4] = "星期四";
+  		    myDay[5] = "星期五";
+  		    myDay[6] = "星期六";
+  		    var myDate = new Date();
+  		    var year = myDate.getYear();
+  		    var month = myDate.getMonth()+1;
+  		    var date = myDate.getDate();
+  		    var day = myDate.getDay();
+  		    document.write("<h3>今天是："+year+"年"+month+"月"+date+"日 "+myDay[day]);
+  		    var hour = myDate.getHours();
+  		    var minutes = myDate.getMinutes();
+  		    var seconds = myDate.getSeconds();
+  		    if(hour<12){
+  		        var sString="AM";
+  		    }else{
+  		        var sString="PM";
+  		    }
+  		    if(minutes<10){
+  		        minutes="0"+minutes;
+  		    }
+  		    if(seconds<10){
+  		        seconds="0"+seconds;
+  		    }
+  		    document.write("<h3>现在是："+hour+":"+minutes+":"+seconds+" "+sString);
+  		    var newDay= prompt("请输入闹钟时间：","08:08:08");
+  		    if(hour>=newDay.substring(0,2)
+  		       &&minutes>=newDay.substring(3,5)
+  		       &&seconds>=newDay.substring(6,8)){
+  		        document.write("<h3>闹钟响~~~~~~~~~~~~~~~");
+  		    }
+   		//-->
+  	</script>
+  </body>
+</html>

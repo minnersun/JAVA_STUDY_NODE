@@ -1,0 +1,23 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+#div1 {
+	height: 100px;
+	border: 1px solid #000000;
+}
+-->
+</style>
+</head>
+<body>
+<div id="div1">这是一个文本区域，点击这个区域，看看显示的内容!</div>
+<script language="javascript">
+ var div = document.getElementById('div1');
+ div.onclick= function (){
+    alert(this.tagName);
+ }
+
+ </script>
+</body>
+</html>

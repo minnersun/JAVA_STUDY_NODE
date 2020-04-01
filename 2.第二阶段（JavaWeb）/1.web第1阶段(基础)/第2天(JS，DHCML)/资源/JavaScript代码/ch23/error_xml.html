@@ -1,0 +1,38 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+<script >
+function createDocument() {
+var aVersions = [ "MSXML2.DOMDocument.5.0",
+"MSXML2.DOMDocument.4.0"," MSXML2.DOMDocument.3.0",
+"MSXML2.DOMDocument"," Microsoft.XmlDom"
+];
+for (var i = 0; i < aVersions.length; i++) {
+try {
+var oXmlDom = new ActiveXObject(aVersions[i]);
+return oXmlDom;
+} catch (oError) {
+//Do nothing
+}
+}
+throw new Error("MSXML is not installed.");
+}
+oXmlDom = createDocument();
+if(oXmlDom==null){
+	alert("XML Error");
+}
+</script>
+</head>
+<body>
+<script>
+var sXml = "<root><person><name>Jeremy McPeak</name></root>";
+var oXmlDom = createDocument();
+oXmlDom.loadXML(sXml);
+if (oXmlDom.parseError.errorCode != 0) {
+    alert("An Error Occurred: "+ oXmlDom.parseError.reason);
+} else {
+//正确装载了数据
+}
+</script>
+</body>
+</html>

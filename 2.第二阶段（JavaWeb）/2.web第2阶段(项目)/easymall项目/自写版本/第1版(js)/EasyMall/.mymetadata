@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="EasyMall"
+  id="myeclipse.1563194552150"
+  context-root="/Root"
+  j2ee-spec="5.0"
+  archive="EasyMall.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

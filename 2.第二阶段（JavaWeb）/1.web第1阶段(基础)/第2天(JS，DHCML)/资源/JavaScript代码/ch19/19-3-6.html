@@ -1,0 +1,21 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+</head>
+<body>
+<script>
+var anObject = new Object();
+anObject.pro1 = "Properties 1";
+anObject.pro2 = "Properties 2";
+anObject.pro3 = "Properties 3";
+anObject.toString=function (){
+  var result = "an Object with 3 Properties:<br>";
+  result = result + "Properties 1:" + this.pro1 + "<br>";
+  result = result + "Properties 2:" + this.pro2 + "<br>";
+  result = result + "Properties 3:" + this.pro3 + "<br>";
+  return result ;
+}
+</script>
+<p>普通对象toString():<script>document.write(anObject.toString());</script></p>
+</body>
+</html>

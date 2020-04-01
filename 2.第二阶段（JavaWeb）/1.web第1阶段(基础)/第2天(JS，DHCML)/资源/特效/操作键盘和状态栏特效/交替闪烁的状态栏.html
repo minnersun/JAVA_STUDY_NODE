@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>交替闪烁的状态栏</title>
+<script type="text/javascript">
+	var msg = "欢迎来到北京";
+	var speed = 1000;
+	var control = 1;
+	function msgFlash() {
+		if(control == 1) {
+			window.status = msg;
+			control = 0;
+		}else {
+			window.status = "我们都是好孩子";
+			control = 1;
+		}
+		setTimeout("msgFlash()",speed);
+	}
+</script>
+</head>
+
+<body onload="msgFlash()">
+</body>
+</html>

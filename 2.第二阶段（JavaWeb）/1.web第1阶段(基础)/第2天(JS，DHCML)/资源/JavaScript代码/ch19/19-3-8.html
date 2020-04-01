@@ -1,0 +1,45 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+<script>
+Person = function(name,age) {
+  this.watch("age", Person.prototype._isValidAssignment);
+  this.watch("name", Person.prototype._isValidAssignment);
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.toString = function() {
+  return this.name + ", " + this.age;
+};
+
+Person.prototype._isValidAssignment = function(id, oldval, newval) {
+  if (id == "name" && (!newval || newval.length > 10)) {
+    alert("invalid name for " + this);
+  }
+  if (id == "age"  && (newval < 0 || newval > 200)) {
+    alert("invalid age for " + this);
+  }
+  return newval;
+}
+
+var person = new Person("no name",20);
+
+</script>
+</head>
+
+<body>
+<label></label>
+<form id="form1" name="form1" method="post" action="">
+  <label>姓名
+  <input name="name" type="text" id="name" onchange="person.name=this.value ;" />
+  </label>
+
+  <p>
+    <label>年龄
+    <input name="age" type="text" id="age" onchange="person.age=this.value" />
+    </label>
+  </p>
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Debug in Firebug 01</title>
+<style type="text/css">
+<!--
+#test1 {
+	border: 1px solid #000000;
+	background-color: #FFFF33;
+}
+-->
+</style>
+<script>
+<!--
+__line_count=1; //全局变量，记录行序号
+
+function appendLine(){
+  //summary:  往test1 层添加一行文本
+  //return: 没有任何返回
+  	var test1 = document.getElementById("test1");
+	var oldHtml = test1.innerHTML;
+	oldHtml = oldHtml + "<br/>" 
+			+ "第" + __line_count + "行：" + "请留意console的显示信息";
+	__line_count ++ ;
+	test1.innerHTML=oldHtml;
+	//传统的测试方法，用alert显示width和height
+	var height = test1.clientHeight ;
+	var width = test1.clientWidth ;
+	console.log('width: %d height: %d', width, height);
+}
+-->
+</script>
+</head>
+<body>
+<div id="test1">
+  <p>测试这个DIV区域的大小。每按一次按钮，往test1里面添加一行文字。</p>
+</div>
+<form name="form1" method="post" action="">
+  <label>
+  <input type="button" name="Button" value="执行" onclick="appendLine();">
+  </label>
+</form>
+</body>
+</html>

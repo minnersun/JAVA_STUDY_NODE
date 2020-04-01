@@ -1,0 +1,85 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="json2.js"></script>
+<title>Untitled Document</title>
+<script>
+http_request = null ;
+if (window.XMLHttpRequest) { // Mozilla, Safari,
+	http_request = new XMLHttpRequest();
+	if(http_request.overrideMimeType){
+		http_request.overrideMimeType('text/xml');
+	}
+} else if (window.ActiveXObject) { // IE
+	try {
+		http_request = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+		try {
+			http_request = new ActiveXObject("Microsoft.XMLHTTP");
+		} catch (e) {}
+	}
+}
+
+if (http_request==null) {
+	alert("浏览器不支持AJAX");
+}
+
+http_request.onreadystatechange = onReceived;
+var myObject={};
+function onReceived(){
+	if (http_request.readyState == 4) { 
+		// 一切就绪，服务器响应
+		// 并且数据已接收完成
+		if (http_request.status == 200 || http_request.status == 0) { 
+			// 成功获得数据！
+			var requestContent = http_request.responseText ;
+			decodeJson(requestContent);
+		}else if(http_request.status == 404 || http_request.status == 2){
+		    alert("404(Not Found)，未找到请求的文件");
+		}else { 
+			alert("请求数据过程出现错误!("+http_request.status+")");
+		}
+	} else {
+       //尚未就绪
+	}	
+}
+//对获得的JSON数据进行解码
+function decodeJson(jsontext){
+    var myObject =JSON.parse(jsontext);
+   var students = myObject.classinfo.students ;
+   var infoTable = document.getElementById("info");
+   for(var i=0;i<students.length;i++){
+   		var tr = document.createElement("TR");
+		var td1 = document.createElement("TD");
+			td1.innerHTML=students[i].name ;
+		var td2 = document.createElement("TD");
+			td2.innerHTML=students[i].age ;
+		var td3 = document.createElement("TD");
+			td3.innerHTML=students[i].average ;
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
+		infoTable.appendChild(tr);
+   }
+}
+</script>
+</head>
+<body>
+<div>
+  <p>在下面这个表格显示解码的内容：</p>
+  <table width="462" border="1">
+  <tbody id="info">
+    <tr>
+      <td width="118">Name</td>
+      <td width="147">age</td>
+      <td width="175">average</td>
+    </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</div>
+<script>
+http_request.open("GET", "json.txt", true);
+http_request.send(null);
+</script>
+</body>
+</html>

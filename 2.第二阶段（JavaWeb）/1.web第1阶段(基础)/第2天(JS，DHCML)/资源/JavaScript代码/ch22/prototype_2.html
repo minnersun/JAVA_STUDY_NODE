@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Untitled Document</title>
+<script type="text/javascript"  src="prototype.js"></script>
+<script>
+function test1(){
+var form = document.getElementById('myForm');
+var input = form['input1'];
+alert(input.value);
+}
+</script>
+</head>
+
+<body>
+<form action="" method="post" name="myForm" id="myForm">
+  Input1:
+  <label>
+  <input name="input1" type="text" id="input1" value="hello prototype!">
+  </label>
+  <p>
+    <label>
+    <input name="testBtn" type="button" id="testBtn" value="Test" onClick="test1();">
+    </label>
+  </p>
+</form>
+
+</body>
+</html>

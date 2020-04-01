@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>获取下拉列表框的值</title>
+<script type="text/javascript">
+function mySelect() {
+	//获取文档中的下拉列表框
+	var mysel = document.getElementById("selecct1");	
+	//获取下拉列表框显示的文本 
+	var txt = mysel.options[mysel.options.selectedIndex].text;
+	//获取下拉列表的值 
+	var valu = mysel.options[mysel.options.selectedIndex].value;
+	alert("你选择了" + valu);
+}
+</script>
+</head>
+
+<body>
+<!-- ondblclick -->
+<select size="10" onchange="mySelect()" id="selecct1">
+<option value="大中型城市">大中城市</option>
+<option value="国际化城市">国际城市</option>
+</select>
+</body>
+</html>

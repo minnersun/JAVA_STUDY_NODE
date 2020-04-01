@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>xml demo</title>
+<script>
+function createDocument() {
+var aVersions = [ "MSXML2.DOMDocument.5.0",
+"MSXML2.DOMDocument.4.0"," MSXML2.DOMDocument.3.0",
+"MSXML2.DOMDocument"," Microsoft.XmlDom"
+];
+for (var i = 0; i < aVersions.length; i++) {
+try {
+var oXmlDom = new ActiveXObject(aVersions[i]);
+return oXmlDom;
+} catch (oError) {
+//Do nothing
+}
+}
+throw new Error("MSXML is not installed.");
+}
+
+var oXmlDom = createDocument();
+if(oXmlDom==null){
+	alert("XML Error");
+}
+</script>
+</head>
+<body>
+<strong>显示遍历XML DOM的结果：</strong>
+<script>
+//首先获得根节点
+oXmlDom.async = true;
+oXmlDom.onreadystatechange = function ( ) {
+	if (oXmlDom.readyState == 4) {
+		var oRoot = oXmlDom.documentElement;
+
+		var result = "";
+		for(var i=0;i<oRoot.childNodes.length;i++){
+			var name = oRoot.childNodes[i].text;
+			result = result + name +"\n";
+		}	
+		alert("books\n"+result);
+	}
+};
+oXmlDom.load("books.xml");
+</script>
+</body>
+</html>

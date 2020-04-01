@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>拖拽表格的行</title>
+<style type="text/css">
+td{position:relative;
+}
+body {
+	margin-left: 1px;
+	margin-top: 1px;
+	margin-right: 1px;
+	margin-bottom: 1px;
+}
+</style>
+</head>
+
+<body style="margin-left:0px; margin-top:0px;">
+
+<table width="301" border="1" bordercolor="#CCCCCC" id="dragTbl">
+<tr>
+    <td width="73">序号</td>
+    <td width="52">姓名</td>
+    <td width="65">年龄</td>
+    <td width="83">地址</td>
+</tr>
+<tr>
+    <td width="73">1</td>
+    <td width="52">张三</td>
+    <td width="65">22</td>
+    <td width="83">北京海淀</td>
+</tr>
+  <tr>
+    <td >2</td>
+    <td>王五</td>
+    <td>24</td>
+    <td>上海浦东</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>朝气</td>
+    <td>24</td>
+    <td>广州深圳</td>
+  </tr>
+</table>
+<script language="javascript" >
+var obj;
+var xx=0,yy=0;
+var tagobj;
+var dragobj;
+function draginit(){
+	var tblRows = document.getElementsByTagName("TR");                //获取所有的表格行
+	for(var i=0;i<tblRows.length;i++){                                //遍历每一行
+		if((tblRows[i].parentNode.parentNode.id).toString().indexOf("drag")!=-1){
+			tblRows[i].onmousedown=mousedown;         //绑定所有的鼠标事件
+			tblRows[i].ondragover=dragover;
+			tblRows[i].ondragend=dragend;
+			tblRows[i].ondrag=dragmove;
+			tblRows[i].style.position="relative";
+			tblRows[i].style.zIndex=1;
+		}
+	}
+}
+function mousedown(){                           //鼠标按下时的处理
+	obj = event.srcElement;
+	if(obj.tagName=="TD") obj=obj.parentNode;           //如果是单元格
+	if(obj.tagName!="TR") return false;                 //如果是单元行
+	if(obj.rowIndex==0) return false;                   //如果是标题
+	yy=event.clientY;                                   //鼠标的x坐标和y坐标
+ 	xx=event.clientX;
+	obj.style.zIndex=0;
+	try{
+		obj.dragDrop();	
+	}catch(e){
+	}
+}
+function dragmove(){                //表格拖拽移动时的位置获取
+	obj.style.top = event.clientY-yy;
+ 	obj.style.left = event.clientX-xx;
+}
+function dragover(){                //鼠标拖动时的操作
+	tagobj=event.srcElement;
+	if(tagobj.tagName=="TD"){tagobj=tagobj.parentNode;}//如果是单元格
+	if(tagobj.tagName!="TR")return false;              //如果是单元行
+}
+function dragend(){                                     //拖拽完毕后的处理-高度，宽度等
+	obj.style.top=0;
+	obj.style.left=0;
+	obj.style.zIndex=1;
+	if(tagobj!=null && tagobj.rowIndex!=0){
+		var t1=dragTbl.rows[obj.rowIndex];
+		var t2=dragTbl.rows[tagobj.rowIndex];
+		dragTbl.getElementsByTagName('tbody')[0].insertBefore(obj,tagobj);//实现表格单元行的互换
+		tagobj.style.zIndex=1;
+	}
+
+	tagobj=null;
+}
+draginit();                                 //初始化拖拽操作
+</script>
+</body>
+</html>

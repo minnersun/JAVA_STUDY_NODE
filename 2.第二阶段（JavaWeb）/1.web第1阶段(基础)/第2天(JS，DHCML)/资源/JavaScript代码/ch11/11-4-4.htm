@@ -1,0 +1,34 @@
+<html>
+  <head>
+  	<title>自定义数组方法</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		    function myFunction()
+		    {
+			    var newArray=this.concat();
+			    return newArray;
+			}
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>自定义数组方法</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		    var myArray = new Array(7);
+			myArray[0] = "Sunday";
+			myArray[1] = "Monday";
+			myArray[2] = "Tuesday";
+			myArray[3] = "Wednesday";
+			myArray[4] = "Thursday";
+			myArray[5] = "Friday";
+			myArray[6] = "Saturday";
+			Array.prototype.clone=myFunction;
+			var aArray = myArray.clone();
+			aArray.pop();
+			document.write("<h3>使用pop方法结果为："+aArray);
+			document.write("<h3>原数组为："+myArray);
+   		//-->
+  	</script>
+  </body>
+</html>

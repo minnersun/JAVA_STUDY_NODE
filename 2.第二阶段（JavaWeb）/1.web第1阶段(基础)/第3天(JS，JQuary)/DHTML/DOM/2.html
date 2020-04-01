@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>节点的增删改查</title>
+<!--加入样式表-->
+<style type="text/css">
+div {
+	border:#0099FF 1px solid;
+	height:60px;
+	width:120px;
+	margin:20px 0px 20px 20px;
+	padding:10px 0px 0px 20px;
+	}
+	
+#div_1{
+	background-color:#00FFFF;
+	}
+	
+#div_2{
+	background-color:#FF3399;
+	}
+	
+#div_3{
+	background-color:#0000FF;
+	}
+	
+#div_4{
+	background-color:#FFFF66;
+	}
+</style>
+
+<script type="text/javascript">
+	function addNode(){
+		//创建并添加节点
+		//1.创建div节点
+		/*var new_div = document.createElement("div");
+		//2.挂载节点    父 -> 子
+		//2.1获取父节点
+		//getElementsByTagName获取到的是一个数组，需要通过下标来获取指定元素。
+		var parent = document.getElementsByTagName("body")[0];
+		//2.2将子节点挂载到父节点身上
+		parent.appendChild(new_div);*/
+
+		//向指定位置添加新的子节点
+		//1.创建div节点
+		var new_div = document.createElement("div");
+		//2.挂载节点    父 -> 子
+		var parent = document.getElementsByTagName("body")[0];
+		//3.获取一个参考节点
+		var div_3 = document.getElementById("div_3");
+		//4.在参考节点之前插入新节点
+		parent.insertBefore(new_div,div_3);
+		
+	}
+	function deleteNode(){
+		//删除节点
+		//1.获取父节点   body
+		var parent = document.getElementsByTagName("body")[0];
+		//2.获取要删除的子节点
+		var div_2 = document.getElementById("div_2");
+		//3.删除子节点
+		parent.removeChild(div_2);
+		
+	}
+	function updateNode(){
+		//更新节点
+		//1.获取父节点
+		var parent = document.getElementsByTagName("body")[0];
+		//2.创建一个新节点
+		var new_div = document.createElement("div");
+		//3.获取要被替换的旧节点
+		var div_2 = document.getElementById("div_2");
+		//4.完成替换
+		parent.replaceChild(new_div,div_2);
+	}
+	function copyNode(){
+		//克隆节点
+		//1.获取要被克隆的节点对象
+		var div_4 = document.getElementById("div_4");
+		//2.完成克隆
+		var c_div = div_4.cloneNode(true);
+		//3.挂载到页面中显示
+		var parent = document.getElementsByTagName("body")[0];
+		parent.appendChild(c_div);
+	}
+</script>
+
+</head>
+
+
+
+<body>
+    <div id="div_1">
+		
+    </div>
+    
+    <div id="div_2">
+    div区域2
+    </div>
+    
+    <div id="div_3">
+   	 div区域3
+    </div>
+    
+    <div id="div_4">
+    div区域4
+    </div>
+    
+    <hr />
+    <input type="button" value="创建并添加节点" onclick="addNode()" />
+    <input type="button" value="删除节点" onclick="deleteNode()" />
+    <input type="button" value="替换节点" onclick="updateNode()" />
+    <input type="button" value="克隆节点" onclick="copyNode()" />
+
+</body>
+</html>

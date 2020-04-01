@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>二级联动菜单</title>
+<script>
+	function selectCity(thisobj){
+		var cities = {
+			"北京市":["海淀区","朝阳区","丰台区"],
+			"河北省":["石家庄","唐山","秦皇岛"],
+			"辽宁省":["沈阳","大连","鞍山"],
+			"山东省":["青岛","济南","烟台"]
+		}
+		//二级联动菜单
+		//通过改变第一个下拉框中的选项，动态的为第二个下拉框绑定数据。
+		//1.获取改变时的option值 -- 省市信息
+		var province = thisobj.value;
+		//2.根据省市信息读取城市信息
+		var city = cities[province];//city是一个数组
+		//3.将城市信息绑定在第二个下拉框中
+		//3.1获取第二个下拉框
+		var sel_city = document.getElementById("city");
+		
+
+		//先清空，再绑定数组
+		sel_city.innerHTML = "<option>--选择城市--</option>";
+		//3.2向其中添加option项 -- 循环添加数组中的城市信息
+		for(var i=0;i<city.length;i++){
+			sel_city.innerHTML += "<option>"+city[i]+"</option>"; 
+		}
+		
+		
+	}
+		
+</script>
+<!--
+var cities = {
+			"北京市":["海淀区","朝阳区","丰台区"],
+			"河北省":["石家庄","唐山","秦皇岛"],
+			"辽宁省":["沈阳","大连","鞍山"],
+			"山东省":["青岛","济南","烟台"]
+		}
+
+		//获取对应省市的城市
+		var citySelect = cities[obj.value]
+		
+		//获取第二个select标签对象，并将option进行遍历添加
+		var city = document.getElementById("city");
+		//在每次添加option之前先清空option
+		city.innerHTML = "<option>--请选择--</option>"
+	
+		for(var i=0;i<citySelect.length;i++){
+			var opt = document.createElement("option");
+			opt.innerText = citySelect[i];
+			city.appendChild(opt);
+		}
+-->
+</head>
+
+<!-- 
+	"海淀区","朝阳区","丰台区"
+    "石家庄","唐山","秦皇岛"
+    "沈阳","大连","鞍山"
+    "青岛","济南","烟台"
+    
+-->
+<body>
+<select id="province" onchange="selectCity(this)">
+	<option>--选择省市--</option>
+	<option>北京市</option>
+	<option>河北省</option>
+	<option>辽宁省</option>
+	<option>山东省</option>
+</select>
+
+
+<select id="city">
+	<option>--选择城市--</option>
+</select>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<html>
+  <head>
+  	<title>鼠标操作对象</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction1()
+  		    {
+  		       document.myForm.myText1.value = event.fromElement.type;
+  		    }
+  		    function myFunction2()
+  		    {
+  		       document.myForm.myText2.value = event.toElement.type;
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body onkeydown="myFunction()">
+  	<h1>鼠标操作对象</h1>
+  	<form name="myForm">
+  		<input type="text" name="myText1">
+  		<input type="text" name="myText2">
+  		<input type="button" value="点击" onmouseover="myFunction2()" onmouseout="myFunction1()">
+  	</form>
+  </body>
+</html>

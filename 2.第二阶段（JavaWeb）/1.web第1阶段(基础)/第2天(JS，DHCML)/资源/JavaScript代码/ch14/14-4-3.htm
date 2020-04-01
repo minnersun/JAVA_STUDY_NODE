@@ -1,0 +1,33 @@
+<html>
+  <head>
+  	<title>鼠标进入 移动和离开事件</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction1()
+  		    {
+  		       document.myForm.text1.value="发生鼠标进入事件";
+  		    }
+  		    function myFunction2()
+  		    {
+  		       document.myForm.text2.value="发生鼠标移动事件";
+  		    }
+  		    function myFunction3()
+  		    {
+  		       document.myForm.text3.value="发生鼠标离开事件";
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>鼠标进入 移动和离开事件</h1>
+  	<form name="myForm">
+  		<textarea name="textarea" cols="50" rows="6" onmouseover="myFunction1()" onmousemove="myFunction2()" onmouseout="myFunction3()">
+  		    将鼠标放到该多行文本框内
+  		</textarea>
+  		<input type="text" name="text1">
+  	    <input type="text" name="text2">
+  	    <input type="text" name="text3">
+  	</form>
+  </body>
+  </body>
+</html>

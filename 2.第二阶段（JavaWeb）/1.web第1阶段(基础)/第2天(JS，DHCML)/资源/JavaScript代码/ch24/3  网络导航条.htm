@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<style>
+/* 先把这个 myMenu 的样式放到css里 */
+.myMenu td{font-size:12px;font-family:verdana,arial;font-weight:bolder;color:#ffffff;border:1px solid #336699;background:#336699;filter:blendtrans(duration=0.5);cursor:hand;text-align:center;}
+</style>
+<script>
+
+//把事件动作绑定到菜单上
+function addMenu(objid){
+var tds=objid.getElementsByTagName('td');
+for(var i=0;i<tds.length;i++){
+  with(tds[i]){
+   onmouseover=function(){
+    with(this){
+     filters[0].apply();
+     style.background='#FEBD20';            //鼠标移上去时的背景颜色
+     style.border='1px solid #ffffff';      //边框
+     style.color='black';                   //文字颜色
+     filters[0].play();
+    }
+   }
+   onmouseout=function(){
+    with(this){
+     filters[0].apply();
+     style.background='#336699';            //鼠标离开时的背景颜色
+     style.border='1px solid #336699';      //边框
+     style.color='#ffffff';                 //文字颜色
+     filters[0].play();
+    }
+   }
+  }
+}
+}
+</script>
+<!--菜单从这里开始, 注意要把class设置成和css里相同的, 还要设一个id-->
+<table class="myMenu" id="menuTbl" width="500" cellpadding="1" cellspacing="4" border="0" bgcolor="#00000" align="center">
+<tr>
+  <td>网站介绍</td>
+  <td>开发文档</td>
+  <td>下载软件</td>
+  <td>开源管理</td>
+  <td>网站服务</td>
+</tr>
+</table>
+<script>addMenu(menuTbl); //在上面这个table结束的地方执行事件动作的绑定, 这里的这个menuTbl就是那个table的id</script></body>
+</html>

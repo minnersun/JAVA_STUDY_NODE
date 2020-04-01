@@ -1,0 +1,156 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script language="JavaScript">
+var titleHeight = 22;    //标题的高度
+var bodyHeight = 160;    //菜单内容项的高度
+var groupcount = 4;      //组的个数
+var step = 3;          //移动速度
+//显示菜单的内容
+function showDiv(obj1, obj2)
+{
+    //以下循环为改变标题的背景颜色
+    for(i=0;i<document.all.tags("td").length;i++)
+    {
+      if (document.all.tags("td")[i].className == 'headtd')
+       document.all.tags("td")[i].bgColor = '#cccc66';
+    }
+    obj2.bgColor = '#cccc66';
+    moveme(obj1);
+}
+//移动菜单内容
+function moveme(obj)
+{
+    idnumber = parseInt(obj.id.substr(4));
+    objtop = titleHeight * (idnumber - 1);
+    objbuttom = bodyHeight + titleHeight * (idnumber - 2);
+    currenttop = parseInt(obj.style.top);
+    if (currenttop >= objbuttom)
+    {
+      //检验出每一个应该向上移动的层
+      countid = 1;
+      for(i=0;i<document.all.tags("div").length;i++)
+      {
+       if (document.all.tags("div")[i].id == 'item'+countid+'body')
+       {
+        obj = document.all.tags("div")[i];
+        objtop = titleHeight * (countid - 1);
+        moveup(obj,objtop);
+        if (countid == idnumber)
+         break;
+        countid++;
+       }
+      }
+}
+else if ((currenttop <= objtop) && (idnumber < groupcount))
+{
+  //检验出每一个应该向下移动的层
+  idnumber++;
+  countid = groupcount;
+  for(i=document.all.tags("div").length-1;i>=0;i--)
+  {
+   if (document.all.tags("div")[i].id == 'item'+countid+'body')
+   {
+    obj = document.all.tags("div")[i];
+    objbuttom = bodyHeight + titleHeight * (countid - 2);
+    movedown(obj,objbuttom);
+    if (countid == idnumber)
+     break;
+    countid--;
+   }
+  }
+}
+}
+//向上移动的方法
+function moveup(obj,objtop)
+{
+    currenttop = parseInt(obj.style.top);
+    if (currenttop > objtop)
+    {
+      obj.style.top = currenttop - step;
+      window.setTimeout('moveup('+obj.id+','+objtop+')',1)
+    }
+}
+//向下移动的方法
+function movedown(obj,objbuttom)
+{
+    currenttop = parseInt(obj.style.top);
+    if (currenttop < objbuttom)
+    {
+      obj.style.top = currenttop + step;
+      window.setTimeout('movedown('+obj.id+','+objbuttom+')',1)
+    }
+}
+</script>
+<style type="text/css">
+<!--showme
+.headtd {  border: 3px outset; border-color: #00bbFF #0007cc #0007cc #00aacc; cursor: hand; font-size: 10pt}
+.bodytd {  background: gray; border: 2px outset; border-color: #00aaFF #0007cc #0007cc #00aacc; font-size: 10pt}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<div id="mainboard" style="position:absolute; left:2px; top:2px; width:120px; height:226px; z-index:3; overflow: hidden; background-color: #cccc66;">
+  <div id="item1body" style="position:absolute; left:0; top:0; width:120px; height:160px; z-index:1; overflow: hidden">
+    <table width="100%" border="0" height="100%" cellpadding="2" cellspacing="0">
+      <tr>
+        <td id="item1head" height="20" class="headtd" onclick="showDiv(item1body,this)" bgcolor="#cccc66">
+          <div align="center">第一级</div>
+        </td>
+    </tr>
+    <tr>
+        <td class="bodytd">
+          <div align="center">123</div>
+        </td>
+    </tr>
+  </table>
+  </div>
+  <div id="item2body" style="position:absolute; left:0px; top:160; width:120; height:160; z-index:2; overflow: hidden">
+    <table width="100%" border="0" height="100%" cellpadding="2" cellspacing="0">
+      <tr>
+        <td id="item2head" height="20" class="headtd" onclick="showDiv(item2body,this)" bgcolor="#cccc66">
+          <div align="center">第二级</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="bodytd">
+          <div align="center">456</div>
+        </td>
+      </tr>
+    </table>
+    <p class="headtd"> </p>
+  </div>
+  <div id="item3body" style="position:absolute; left:0; top:182; width:120px; height:160; z-index:3">
+    <table width="100%" border="0" height="100%" cellpadding="2" cellspacing="0">
+      <tr>
+        <td id="item3head" height="20" class="headtd" onclick="showDiv(item3body,this)" bgcolor="#cccc66">
+          <div align="center">第三级</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="bodytd">
+          <div align="center">789</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="item4body" style="position:absolute; left:0; top:204; width:120px; height:160; z-index:4; overflow: hidden">
+    <table width="100%" border="0" height="100%" cellpadding="2" cellspacing="0">
+      <tr>
+        <td id="item4head" height="20" class="headtd" onclick="showDiv(item4body,this)" bgcolor="#cccc66">
+          <div align="center">第四级</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="bodytd">
+          <div align="center">000</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>
+
+

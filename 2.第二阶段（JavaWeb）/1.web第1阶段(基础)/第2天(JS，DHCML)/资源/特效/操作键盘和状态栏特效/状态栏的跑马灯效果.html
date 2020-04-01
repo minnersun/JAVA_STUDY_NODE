@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>状态栏的跑马灯效果</title>
+<script type="text/javascript">
+	var msg = "欢迎光临河北师大汇华学院，期待您的参与！";
+	var interval = 200;
+	seq = 0;
+	function marquee() {
+		len = msg.length;
+		window.status = msg.substring(0,seq+1);
+		seq++;
+		if(seq >= len) {
+			seq = 0;	
+		}
+		window.setTimeout("marquee()", interval);
+	}
+</script>
+</head>
+
+<body onload="marquee()">
+
+</body>
+</html>

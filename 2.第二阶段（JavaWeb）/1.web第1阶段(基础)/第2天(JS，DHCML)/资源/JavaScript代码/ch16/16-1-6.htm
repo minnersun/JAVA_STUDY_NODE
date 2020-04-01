@@ -1,0 +1,29 @@
+<html>
+  <head>
+  	<title>获取具体按键</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction()
+  		    {
+  		       var sString1 = event.keyCode;
+  		       document.myForm.myText1.value = sString1;
+  		       var sString2 = sString1+5;
+  		       document.myForm.myText2.value = sString2;
+  		       var sString3 = String.fromCharCode(sString2);
+  		       document.myForm.myText3.value = sString3;
+  		       var sString4 = String.fromCharCode(sString1);
+  		       document.myForm.myText4.value = sString4;
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body onkeydown="myFunction()">
+  	<h1>获取具体按键</h1>
+  	<form name="myForm">
+  		UniCode字符值为：<input type="text" name="myText1"><br>
+  		加 密后字符值为：<input type="text" name="myText2"><br>
+  		加 密后 按 键为：<input type="text" name="myText3"><br>
+  		实 际具体按键为：<input type="text" name="myText4">
+  	</form>
+  </body>
+</html>

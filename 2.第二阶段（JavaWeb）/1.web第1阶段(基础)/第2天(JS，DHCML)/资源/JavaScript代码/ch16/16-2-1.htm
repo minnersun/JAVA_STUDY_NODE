@@ -1,0 +1,30 @@
+<html>
+  <head>
+  	<title>获取鼠标按键</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    var bArray = new Array(8);
+  		    bArray[0] = "没有按键";
+  		    bArray[1] = "按下左键";
+  		    bArray[2] = "按下右键";
+  		    bArray[3] = "同时按下左键和右键";
+  		    bArray[4] = "按下中间键";
+  		    bArray[5] = "同时按下左键和中间键";
+  		    bArray[6] = "同时按下右键和中间键";
+  		    bArray[7] = "同时按下三个键";
+  		    function myFunction()
+  		    {
+  		        var nNumber = event.button;
+  		        var sString = bArray[nNumber];
+  		        alert(sString);
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body onkeydown="myFunction()">
+  	<h1>获取鼠标按键</h1>
+  	<form name="myForm">
+  		<input type="button" value="点击" onmousedown="myFunction()">
+  	</form>
+  </body>
+</html>

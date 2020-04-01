@@ -1,0 +1,30 @@
+<html>
+  <head>
+  	<title>窗口缩放事件</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction()
+  		    {
+  		       alert("窗口的大小发生改变");
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>窗口缩放事件</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myResize()
+  		    {
+  		       window.onresize=myFunction;
+  		    }
+   		//-->
+  	</script>
+  	<form action="">
+  		<input type="button" value="放大窗口" onclick=resizeBy(0,10)>
+  	 	<input type="button" value="缩小窗口" onclick=resizeBy(-10,0)>
+  	 		<hr>
+  	 	<input type="button" value="开始" onclick="myResize()">
+  	</form>
+  </body>
+</html>

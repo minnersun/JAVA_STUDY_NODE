@@ -1,0 +1,37 @@
+<html>
+  <head>
+  	<title>函数参数的使用</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		  function myFunction(parameter)
+  		  {
+  		      switch(typeof(parameter))
+  		      {
+  		          case "string":
+  		             document.write("<h3>你输入参数的数据类型为字符型");
+  		             break;
+  		          case "number":
+  		             document.write("<h3>你输入参数的数据类型为数值型");
+  		             break;
+  		          case "boolean":
+  		             document.write("<h3>你输入参数的数据类型为布尔型");
+  		             break;
+  		          default:
+  		             document.write("<h3>你输入参数的数据类型不是基本数据类型");
+  		      }
+  		  }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>函数参数的使用</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		  myFunction(false);  		  
+  		  myFunction("JavaScript");
+  		  myFunction(123);
+  		  myFunction(null);
+   		//-->
+  	</script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+#inputform {
+	border: 1px solid #000000;
+}
+#info {
+	background-color: #CCCCCC;
+	border: 2px solid #000000;
+}
+
+-->
+</style>
+<script>
+function validate(){
+	var userInput = document.getElementById("user");
+	var passInput = document.getElementById("pass");
+	var checkPassInput = document.getElementById("checkPass");
+	var infoDiv = document.getElementById("info");
+	var imgStr = "<img src='alert.gif' border='0'>";
+	if(userInput.value.length<5){
+		infoDiv.innerHTML = imgStr+"<b>请输入账号</b>，至少<font size='+1' color='red'><b>5</b></font>个字符!";
+		return ;
+	}
+	if(passInput.value.length<6){
+		infoDiv.innerHTML = imgStr+"<b>请输入密码</b>，至少<font size='+1' color='red'><b>6</b></font>个字符!";
+		return ;
+	}
+	if(passInput.value != checkPassInput.value ){
+		infoDiv.innerHTML = imgStr+"<font size='+1' color='red'><b>密码</b></font>和<font size='+1' color='red'><b>密码校验</b></font>不一致，请重新输入!";
+		return ;
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="inputform">
+  <form id="form1" name="form1" method="post" action="">
+    <label>账号
+    <input type="text" name="user" id="user" onchange="validate();"/>
+    </label>
+    <p>
+      <label>密码
+      <input type="password" name="pass" id="pass" onchange="validate();"/>
+      </label>
+    </p>
+    <p>
+      <label>密码验证
+      <input type="password" name="checkPass" id="checkPass" onchange="validate();"/>
+      </label>
+    </p>
+  </form>
+</div>
+<div id="info">请输入账号和密码!</div>
+</body>
+</html>

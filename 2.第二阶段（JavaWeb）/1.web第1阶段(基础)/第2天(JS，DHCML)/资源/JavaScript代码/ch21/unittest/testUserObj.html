@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Untitled Document</title>
+<script language="javascript" src="jsunit/app/jsUnitCore.js"></script>
+  <script language="javascript" src="user.js"></script>
+  <script language="javascript">
+    function setUp(){
+		__user = new User("0","testUser");
+	}
+	
+	function tearDown(){
+		__user = null ;
+	}
+    function testNewUser() {
+        assertEquals("必须初始化id", "0", __user.id);
+        assertEquals("必须初始化name","testUser", __user.name);
+	assertEquals("必须初始化email","", __user.email);
+	assertEquals("必须初始化age",0, __user.age);
+    }
+	
+	function testGetEmail(){
+	    assertEquals("未设置email前，获得默认email", "testUser@smartdio.com", __user.getEmail());
+	    __user.setEmail("test@smartdio.com");
+	    assertEquals("设置了email后", "test@smartdio.com", __user.getEmail());
+	}
+	
+	function testCheckEmail(){
+	   assertEquals("email格式完全正确", __user.EMAIL_CORRECT, __user.checkEmail("test@smartdio.com"));
+	   assertEquals("email格式不正确", __user.EMAIL_WRONG_FORMAT, __user.checkEmail("test#test_com"));
+	   assertEquals("email格式不正确,有空格", __user.EMAIL_WRONG_FORMAT, __user.checkEmail("test@test com"));  
+	   assertEquals("email格式正确但服务器地址不正确", __user.EMAIL_WRONG_HOST, __user.checkEmail("test@test.com"));
+	   
+	}
+  </script>
+</head>
+
+<body>
+</body>
+</html>

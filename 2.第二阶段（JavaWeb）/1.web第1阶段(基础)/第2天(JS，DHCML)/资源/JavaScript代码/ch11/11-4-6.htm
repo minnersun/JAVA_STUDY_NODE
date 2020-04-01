@@ -1,0 +1,45 @@
+<html>
+  <head>
+  	<title>自定义数组方法</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction1(vItem,iStart)
+		    {
+		        if(iStart == null){
+			        iStart = 0;
+			    }
+			    for (var i=iStart;i <this.length; i++) 
+			    {
+			        if (this[i] == vItem) {
+			            return i;
+			        }
+			    }
+			    return -1;
+		    }
+		    function myFunction2(vItem,vBeforeItem)
+		    {
+			    this.splice(this.indexOf(vBeforeItem), 0, vItem);
+			}
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>自定义数组方法</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		    var myArray = new Array(7);
+			myArray[0] = "Sunday";
+			myArray[1] = "Monday";
+			myArray[2] = "Tuesday";
+			myArray[3] = "Wednesday";
+			myArray[4] = "Thursday";
+			myArray[5] = "Friday";
+			myArray[6] = "Saturday";
+			Array.prototype.indexOf=myFunction1;
+			Array.prototype.insertBefore=myFunction2;
+			myArray.insertBefore("noday","Friday");
+			document.write("<h3>使用insertBefore方法后数组为："+myArray);
+   		//-->
+  	</script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+  <head>
+  	<title>键盘按键事件</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    var sString;
+  		    function myFunction(e)
+  		    {
+  		       var keyCode = new Number(e.which);
+  		       sString += unescape("%"+keyCode.toString(16));
+  		       document.myForm.text.value = sString;
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>键盘按键事件</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    document.onkeypress=myFunction;
+   		//-->
+  	</script>
+  	<form name="myForm">
+  		<input type="text" name="text">
+  	</form>
+  </body>
+  </body>
+</html>

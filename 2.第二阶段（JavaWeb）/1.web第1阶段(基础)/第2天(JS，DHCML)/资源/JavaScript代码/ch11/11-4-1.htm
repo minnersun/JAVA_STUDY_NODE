@@ -1,0 +1,40 @@
+<html>
+  <head>
+  	<title>自定义数组方法</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		    function myFunction(vItem,iStart)
+		    {
+		        if(iStart == null){
+			        iStart = 0;
+			    }
+			    for (var i=iStart;i <this.length; i++) 
+			    {
+			        if (this[i] == vItem) {
+			            return i;
+			        }
+			    }
+			    return -1;
+		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>自定义数组方法</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+		    var myArray = new Array(7);
+			myArray[0] = "Sunday";
+			myArray[1] = "Monday";
+			myArray[2] = "Tuesday";
+			myArray[3] = "Wednesday";
+			myArray[4] = "Thursday";
+			myArray[5] = "Friday";
+			myArray[6] = "Saturday";
+			Array.prototype.indexOf=myFunction;
+			var nNumber = myArray.indexOf("Friday",1)
+			document.write("<h3>使用indexOf方法查找的结果为："+nNumber);
+   		//-->
+  	</script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>新闻广告</title>
+<style type="text/css">
+<!-- 伪元素选择器 -->
+a:link,a:visited {
+	color:#FF9900;
+	text-decoration:none;
+	font-size:15px;
+	}
+	
+a:hover {
+	color:#0099FF;
+	}
+	
+.newsstyle {
+	border:#0099FF 1px solid;
+	font-size:16px;
+	width:400px;
+	}
+	
+/*
+预先定一些选择器
+*/
+.max {
+	border:#0099FF 1px solid;
+	font-size:20px;
+	color:#FF0000;
+	background-color:#CCFFFF;
+	width:400px;
+	}
+	
+.min {
+	border:#0099FF 1px solid;
+	font-size:12px;
+	color:#0000FF;
+	background-color:#FFFFFF;
+	width:400px;
+	}
+
+</style>
+
+<script type="text/javascript">
+	function resize(thisobj){
+		//resize方法用于修改div中class属性的属性值。属性值由参数列表传入。
+		//获取修改div
+		var news = document.getElementById("newstext");
+		//将thisobj传入class属性中
+		news.className = thisobj;
+	}
+</script>
+</head>
+<body>
+    <h2>这是一个大新闻.</h2>
+
+    <a href="javascript:void(0)" onclick="resize('min')">小字体</a> 
+    <a href="javascript:void(0)" onclick="resize('newsstyle')">中字体</a> 
+    <a href="javascript:void(0)" onclick="resize('max')">大字体</a> 
+
+	
+    <hr />
+    
+    <div id="newstext" class="newsstyle">
+    演示接口.很多内容.怎么办呢?等等<br />
+    演示接口.很多内容.怎么办呢?等等<br />
+    演示接口.很多内容.怎么办呢?等等<br />
+    演示接口.很多内容.怎么办呢?等等<br />
+    演示接口.很多内容.怎么办呢?等等<br />
+    演示接口.很多内容.怎么办呢?等等<br />
+    演示接口.很多内容.怎么办呢?等等<br />
+    演示接口.很多内容.怎么办呢?等等<br />
+    </div>
+
+</body>
+</html>

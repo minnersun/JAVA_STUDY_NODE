@@ -1,0 +1,37 @@
+<html>
+  <head>
+  	<title>获取具体按键</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction()
+  		    {
+  		       var sString = event.keyCode;
+  		       switch(sString)
+  		       {
+  		          case 87:
+  		             window.moveBy(0,-10);
+  		             break;
+  		          case 83:
+  		             window.moveBy(0,10);
+  		             break;
+  		          case 65:
+  		             window.moveBy(-10,0);
+  		             break;
+  		          case 68:
+  		             window.moveBy(10,0);
+  		       }
+  		    }
+  		    function myFunction2()
+  		    {
+  		       alert("w向上 s向下 a向左 d向右");
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body onkeydown="myFunction()">
+  	<h1>获取具体按键</h1>
+  	<form >
+  		<input type="button" value="游戏说明" onclick="myFunction2()">
+  	</form>
+  </body>
+</html>

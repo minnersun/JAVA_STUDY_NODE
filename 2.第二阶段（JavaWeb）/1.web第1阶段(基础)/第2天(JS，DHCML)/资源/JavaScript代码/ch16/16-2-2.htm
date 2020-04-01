@@ -1,0 +1,33 @@
+<html>
+  <head>
+  	<title>获取鼠标按键</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction()
+  		    {
+  		        var nNumber = event.button;
+  		        switch(nNumber)
+  		        {
+  		           case 3:
+  		              alert("同时按下左键和右键");
+  		              break;
+  		           case 5:
+  		              alert("同时按下左键和中间键");
+  		              break;
+  		           case 6:
+  		              alert("同时按下右键和中间键");
+  		              break;
+  		           case 7:
+  		              alert("同时按下三个键");
+  		        }
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body onkeydown="myFunction()">
+  	<h1>获取鼠标按键</h1>
+  	<form name="myForm">
+  		<input type="button" value="点击" onmousedown="myFunction()">
+  	</form>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+  <head>
+  	<title>remove删除方法</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction1()
+  		    {
+  		       var newOption = new Option("新选项","这是一个新选项");
+  		       document.myForm1.mySelect.add(newOption);
+  		    }
+  		    function myFunction2()
+  		    {
+  		       document.myForm1.mySelect.remove(0);
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>remove删除方法</h1>
+  	<form name="myForm1">
+  		<select size="5" name="mySelect">
+  			<option>看书</option>
+  			<option>上网</option>
+  			<option>游戏</option>
+  		</select>
+  	</form>
+  	<form name="muForm2">
+  		<input type="button" value="添加新选项" onclick="myFunction1()">
+  		<input type="button" value="删除第一项" onclick="myFunction2()">
+  	</form>
+  </body>
+</html>

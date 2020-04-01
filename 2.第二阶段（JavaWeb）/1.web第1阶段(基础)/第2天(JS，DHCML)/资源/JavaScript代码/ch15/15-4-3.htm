@@ -1,0 +1,34 @@
+<html>
+  <head>
+  	<title>复选框checked属性</title>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    function myFunction()
+  		    {
+  		       var bBoolean = document.myForm2.cb.checked;
+  		       if(bBoolean){
+  		          document.myForm1.cb1.checked = true;
+  		          document.myForm1.cb2.checked = true;
+  		          document.myForm1.cb3.checked = true;
+  		       }else{
+  		          document.myForm1.cb1.checked = false;
+  		          document.myForm1.cb2.checked = false;
+  		          document.myForm1.cb3.checked = false;
+  		       }
+  		    }
+   		//-->
+  	</script>
+  </head>
+  <body>
+  	<h1>请选择你的爱好</h1>
+  	<form name="myForm1">
+  		<input type="checkbox" name="cb1" checked>看书<br>
+  		<input type="checkbox" name="cb2" checked>上网<br>
+  		<input type="checkbox" name="cb3">游戏<br>
+  	</form>
+  	<hr>
+  	<form name="myForm2">
+  		<input type="checkbox" name="cb" onclick="myFunction()">全选
+  	</form>
+  </body>
+</html>

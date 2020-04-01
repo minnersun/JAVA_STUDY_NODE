@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用table做进度条</title>
+<script type="text/javascript">
+	var i = 0;
+	var timer;
+	function progress() {
+		if(i==200) {
+			//清除定时器
+			clearTimeout(timer);
+			return ;
+		}
+		// 步长为4
+		i = (i<200)?(i+4):0;
+		//设置滚动条的宽度
+		myBar.style.setExpression("width","i","javascript");
+		//设置进度的显示
+		percentBar.innerText = i/2 + "%";
+		timer = setTimeout("progress()",250);
+	}
+</script>
+</head>
+
+<body onload="progress()">
+<table align="center" width="50%">
+	<tr>
+    	<td><span id="myBar" style="background-color:blue"></span></td>
+    </tr>
+    <tr>
+    	<td><span id="percentBar" width="100%"></span></td>
+    </tr>
+</table>
+</body>
+</html>

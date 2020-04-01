@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一个链接打开两个地址</title>
+<script type="text/javascript">
+function hrefClick(newWin, locationWin) {
+	window.open(newWin);
+	window.location = locationWin;
+}
+</script>
+</head>
+
+<body>
+<a href="javascript:hrefClick('让链接没有下划线.html','http://localhost:8080/');">打开页面</a>
+</body>
+</html>
+
+<!-- 打开两个页面是前者将在新页面打开，后者则在当前页面打开 -->

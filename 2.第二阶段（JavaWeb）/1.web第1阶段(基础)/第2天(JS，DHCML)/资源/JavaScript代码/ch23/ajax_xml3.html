@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>xml demo</title>
+<script >
+function createDocument() {
+var aVersions = [ "MSXML2.DOMDocument.5.0",
+"MSXML2.DOMDocument.4.0"," MSXML2.DOMDocument.3.0",
+"MSXML2.DOMDocument"," Microsoft.XmlDom"
+];
+for (var i = 0; i < aVersions.length; i++) {
+try {
+var oXmlDom = new ActiveXObject(aVersions[i]);
+return oXmlDom;
+} catch (oError) {
+//Do nothing
+}
+}
+throw new Error("MSXML is not installed.");
+}
+</script>
+</head>
+<body>
+<table width="392" border="1">
+<tbody id="books">
+  <tr>
+    <td width="126"><strong>书名</strong></td>
+    <td width="89"><strong>ISBN</strong></td>
+    <td width="89"><strong>作者</strong></td>
+    <td width="60"><strong>价格</strong></td>
+  </tr>
+</tbody>
+</table>
+<script>
+
+oXmlDom = createDocument();
+if(oXmlDom==null){
+	alert("XML Error");
+}
+//首先获得根节点
+oXmlDom.async = true;
+oXmlDom.onreadystatechange = function ( ) {
+
+	if (oXmlDom.readyState == 4) {
+		var oRoot = oXmlDom.documentElement;
+		//获取HTML中的表格
+		var oTable = document.getElementById("books");
+		for(var i=0;i<oRoot.childNodes.length;i++){
+			//获取XML DOM内容
+			var node = oRoot.childNodes[i];
+			var title = node.getElementsByTagName("title")[0].text;
+			var author = node.getElementsByTagName("author")[0].text;
+			var price = node.getElementsByTagName("price")[0].text;
+			var isbn = node.getAttribute("isbn");
+			
+			//建立HTML DOM 对象
+			
+			var tr    = document.createElement('TR');
+			var td1 = document.createElement('TD');
+			td1.innerText=title;
+			var td2 = document.createElement('TD');
+			td2.innerText=isbn;
+			var td3 = document.createElement('TD');
+			td3.innerText=author;
+			var td4 = document.createElement('TD');
+			td4.innerText=price;
+			oTable.appendChild(tr);
+			tr.appendChild(td1);
+			tr.appendChild(td2);
+			tr.appendChild(td3);
+			tr.appendChild(td4);
+			
+			
+		}
+	}
+};
+oXmlDom.load("books3.xml");
+</script>
+</body>
+</html>

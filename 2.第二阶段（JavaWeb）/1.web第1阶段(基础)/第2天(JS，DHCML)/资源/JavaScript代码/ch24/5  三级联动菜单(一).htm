@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<STYLE>
+body { font-size: 11px; font-family: Verdana;background:#ececec;color:#666666;}
+select { font-size: 11px; font-family: Verdana;vertical-align: middle;margin: 3px;background:#ececec;color:#666666;}
+</STYLE>
+<div id="myDiv">&nbsp;</div>
+<SCRIPT LANGUAGE="JavaScript" DEFER>
+var cMenu = ["上海","北京","深圳","济南"]
+var cValue = ["shanghai","beijing","shenzhen","jinan"]
+var aMenu = [["杨浦区","徐汇区","黄浦区","浦东新区"],["丰台区","海淀区"],["福田","宝安"],["市中","历下"]]
+var aValue = [["yp","xh","hp","pd"],["ft","hd"],["ft","ba"],["sz","lx"]]
+var dMenu = [[["市光新村","工农三村"],["徐汇新村","徐汇高楼"],["黄浦楼宇","外滩风景"],["浦东地铁","浦东机场"]],[["丰台体育馆","造甲村"],["亚运村"]],[["莲花山","商报大厦"],["深圳宝安机场","宝安开发区"]],[["山庄宾馆","山庄大酒店"],["千佛山东门","千佛山医院"]]]
+
+var oDiv = document.all.myDiv;
+var ocMenu = document.createElement("<SELECT name='city'>");            //创建城市列表框
+var oaMenu = document.createElement("<SELECT name='cityArea'>");        //创建区域列表框
+var odMenu = document.createElement("<SELECT name='cityAddress'>");     //创建地址列表框
+with(oDiv)appendChild(ocMenu),appendChild(oaMenu),appendChild(odMenu);  //将以上三个列表框添加到div中
+createMainOptions();
+createSubOptions(0);
+createSub2Options(0,0);
+
+ocMenu.onchange = function() {//绑定城市下拉框的选择事件
+    createSubOptions(this.selectedIndex);createSub2Options(this.selectedIndex,oaMenu.selectedIndex);};
+oaMenu.onchange = function() {//绑定区域下拉框的选择事件
+    createSub2Options(ocMenu.selectedIndex,this.selectedIndex);};
+
+function createMainOptions() {
+    for(var i=0;i<cMenu.length;i++)ocMenu.options[i] = new Option(cMenu[i],cValue[i]);//填充城市列表框内容
+}
+function createSubOptions(j) {
+    with(oaMenu) {
+        length=0;                                                                       //填充区域列表框内容
+        for(var i=0;i<aMenu[j].length;i++)oaMenu.options[i] = new Option(aMenu[j][i],aValue[j][i]);
+    }
+}
+function createSub2Options(j,k) {
+    with(odMenu) {
+        length=0;                                                  //填充地址列表框内容
+        for(var i=0;i<dMenu[j][k].length;i++)odMenu.options[i] = new Option(dMenu[j][k][i]);
+    }
+}
+ocMenu[1].selected=true;
+ocMenu.fireEvent("onchange");
+</SCRIPT>
+</head>
+<body>
+</body>
+</html>

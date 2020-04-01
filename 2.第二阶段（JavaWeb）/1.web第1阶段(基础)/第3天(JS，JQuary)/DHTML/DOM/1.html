@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>如何通过document获取数据</title>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript">
+		function demo1(){
+			//根据id获取页面中的元素
+			var input = document.getElementById("username");
+			alert(input.value);
+		}
+		function demo2(){
+			//根据name获取页面中的元素
+			var password = document.getElementsByName("password");
+			//从数组中取出每一个元素打印value结果
+			alert(password[0].value);
+			alert(password[1].value);
+		}
+		function demo3(){
+			//根据元素名称获取页面中的元素
+			var inputs = document.getElementsByTagName("input");
+			for(var i=0;i<inputs.length;i++){
+				alert(inputs[i].value);
+			}
+		}
+		function demo4(){
+			//1.获取元素
+			var p = document.getElementById("pid");
+			//2.获取元素中的文本内容
+			//alert(p.innerText);
+			//3.设置元素中的文本内容。
+			//p.innerText = "下雨了~~";
+			//4.设置HTML内容
+			p.innerHTML = "<font color='red'>下雨了~~</font>"
+		}
+	</script>
+	
+</head>
+<body>
+
+	用户名称：<input type="text" name="username" id="username"/><br />
+    用户密码：<input type="password" name="password" id="password" /><br />
+    用户密码2：<input type="password" name="password" id="password2" /><br />
+    
+    <hr />
+    <input type="button" value="通过ID获取节点的值" onclick="demo1()"/>
+    <input type="button" value="通过NAME获取节点的值"  onclick="demo2()" />
+    <input type="button" value="通过TAG获取节点的值" onclick="demo3()" />        
+    
+    <hr  />
+    <p id="pid"><font color="red">获取P标签中的文字</font></p>
+	<input type="button" value="获取P中文字" onclick="demo4()" />
+	
+</body>
+</html>

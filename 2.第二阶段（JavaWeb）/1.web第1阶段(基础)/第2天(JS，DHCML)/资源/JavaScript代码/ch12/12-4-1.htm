@@ -1,0 +1,32 @@
+<html>
+  <head>
+  	<title>显示当前日期和时间</title>
+  </head>
+  <body>
+  	<h1>显示当前日期和时间</h1>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    var myDate = new Date();
+  		    var year = myDate.getYear();
+  		    var month = myDate.getMonth()+1;
+  		    var date = myDate.getDate();
+  		    document.write("<h3>今天是："+year+"年"+month+"月"+date+"日");
+  		    var hour = myDate.getHours();
+  		    var minutes = myDate.getMinutes();
+  		    var seconds = myDate.getSeconds();
+  		    if(hour<12){
+  		        var sString="AM";
+  		    }else{
+  		        var sString="PM";
+  		    }
+  		    if(minutes<10){
+  		        minutes="0"+minutes;
+  		    }
+  		    if(seconds<10){
+  		        seconds="0"+seconds;
+  		    }
+  		    document.write("<h3>现在是："+hour+":"+minutes+":"+seconds+" "+sString);
+   		//-->
+  	</script>
+  </body>
+</html>

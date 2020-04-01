@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+<style>
+#iewrap{
+position:relative;
+height:30px
+}
+#iewrap2{
+position:absolute;
+}
+#dropmenu03{
+filter:revealTrans(Duration=1.5,Transition=12);
+visibility:hide;
+}
+a:hover {  color: #FF0000}
+body {  font-family: "宋体"; font-size: 9pt; text-decoration: none}
+a { font-family: "宋体"; font-size: 9pt; text-decoration: none}
+</style>
+</head>
+<body>
+<ilayer id="dropmenu01" height=35px>
+<layer id="dropmenu02" visibility=show>
+<span id="iewrap">
+<span id="iewrap2" onClick="dropit2();event.cancelBubble=true;return false">
+<font face="宋体"><a href="#">单击此处出现菜单</a></font>
+</span>
+</span>
+</layer>
+</ilayer>
+<script language="JavaScript">
+//关闭 "fade"（消隐）效果，将如下参数设置成false。
+var enableeffect=true;
+//菜单项
+var selection=new Array();
+selection[0]='<font face="宋体"><a href="#">第一个菜单</a></font><br>';
+selection[1]='<font face="宋体"><a href="#">第二个菜单</a></font><br>';
+selection[2]='<font face="宋体"><a href="#">第三个菜单</a></font><br>';
+selection[3]='<font face="宋体"><a href="#">第四个菜单</a></font><br>';
+selection[4]='<font face="宋体"><a href="#">第五个菜单</a></font>';
+if (document.layers)
+document.dropmenu01.document.dropmenu02.visibility='show';
+function dropit2()
+{
+if (document.all){
+dropmenu03.style.left=document.body.scrollLeft+event.clientX-event.offsetX;
+dropmenu03.style.top=document.body.scrollTop+event.clientY-event.offsetY+18;
+if (dropmenu03.style.visibility=="hidden"){
+if (enableeffect)
+dropmenu03.filters.revealTrans.apply();  //配置特殊效果
+dropmenu03.style.visibility="visible";
+if (enableeffect)
+dropmenu03.filters.revealTrans.play();//演示特殊效果
+}
+else{
+hidemenu();                           //隐藏菜单
+}}}
+function dropit(e)
+{
+if (document.dropmenu03.visibility=="hide")
+document.dropmenu03.visibility="show";
+else
+document.dropmenu03.visibility="hide";
+document.dropmenu03.left=e.pageX-e.layerX;
+document.dropmenu03.top=e.pageY-e.layerY+19;
+return false;
+}
+//隐藏菜单的方法
+function hidemenu()
+{
+if (enableeffect)
+dropmenu03.filters.revealTrans.stop();  //停止特效
+dropmenu03.style.visibility="hidden";   
+}
+function hidemenu2()
+{document.dropmenu03.visibility="hide";}
+if (document.layers){
+document.dropmenu01.document.dropmenu02.captureEvents(Event.CLICK);
+document.dropmenu01.document.dropmenu02.onclick=dropit;}
+else if (document.all)
+document.body.onclick=hidemenu;
+</script>
+<div id="dropmenu03" style="position:absolute;left:0;top:0;layer-background-color:seashell;background-color:seashell;width:100;visibility:hidden;border:1px solid black;padding:0px">
+<script language="JavaScript1.2">
+if (document.all)
+dropmenu03.style.padding='4px'
+for (i=0;i<selection.length;i++)
+document.write(selection[i])
+</script>
+</div>
+<script language="JavaScript">
+if (document.layers){
+document.dropmenu03.captureEvents(Event.CLICK);
+document.dropmenu03.onclick=hidemenu2;
+}
+</script>
+</body>
+</html>

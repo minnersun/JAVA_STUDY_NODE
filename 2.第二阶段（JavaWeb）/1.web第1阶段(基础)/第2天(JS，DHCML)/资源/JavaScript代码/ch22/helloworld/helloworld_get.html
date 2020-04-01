@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Dojo: Hello World!</title>
+    <style type="text/css">
+        @import "dojoroot/dijit/themes/tundra/tundra.css";
+        @import "dojoroot/dojo/resources/dojo.css";
+    </style>
+    <script type="text/javascript" src="dojoroot/dojo/dojo.js"
+            djConfig="parseOnLoad: true"></script>
+			<script type="text/javascript">
+       //装载与button widget相关的代码库
+       dojo.require("dijit.form.Button");
+    </script>
+
+  </head>
+  <body class="tundra">
+  <button dojoType="dijit.form.Button" id="helloButton">Hello World!</button>
+  </body>
+</html>

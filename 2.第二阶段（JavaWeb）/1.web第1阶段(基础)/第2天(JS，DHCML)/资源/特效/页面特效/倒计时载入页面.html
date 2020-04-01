@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="refresh" content="11;URL=页面自动刷新.html" />
+<script language="javascript">
+	//获取当前时间
+	var now = new Date();
+	var clockStart = now.getTime();
+
+	function initStopwatch() {
+		var myTime = new Date();
+		var timeNow = myTime.getTime();
+		//获取间隔时间
+		var timeDiff = timeNow - clockStart;
+		//时间以毫秒为单位
+		this.diffSecs = timeDiff/1000;
+		//返回间隔毫秒数
+		return (this.diffSecs);
+	}
+	
+	function getSecs() {
+		var mySecs = initStopwatch();
+		var mySecsdemo = "" + mySecs;
+		//以倒计时的方式显示时间
+		mySecsdemo = 10 - eval(mySecsdemo.substring(0,mySecsdemo.indexOf("."))) + "秒";
+		document.getElementById("timespent").value = mySecsdemo;
+		window.setTimeout('getSecs()',1000)
+	}
+</script>
+<title>倒计时载入页面</title>
+</head>
+
+<body onload="window.setTimeout('getSecs()',1)">
+<center>
+10秒后将加载页面:
+<form name="myform">
+	<input type="text" id="timespent" size="10"/>
+</form>
+</center>
+</body>
+</html>
+
+<!-- 本例的重点是加载页面，计算剩下的时间
+<meta http-equiv="refresh" content="11;URL=页面自动刷新.html" />
+包含需要等待的时间和要加载的页面地址
+  -->

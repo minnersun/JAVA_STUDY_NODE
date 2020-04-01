@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+var timer          //定时器
+var Opacity = 0    //背景覆盖色的透明度
+function hide() { 
+  myDiv.style.display = "block"                      //显示div层
+  myDiv.style.height = document.body.scrollHeight    //要设置div的高度同窗体相同,以实现覆盖
+  Opacity = 0
+  event.srcElement.blur()                           //当前对象失去焦点
+  timer = window.setInterval("AddOpacity()", 5)  //使用定时器逐渐增加窗体的透明度
+}
+ function AddOpacity()                               //变更透明度
+{
+  if (Opacity == 50)
+  {
+    window.clearInterval(timer)                         //清空定时器
+    myBtn.style.display = "block"                       //显示按钮     
+    return
+  }
+  Opacity = ( Opacity + 3 ) > 50 ? 50 : Opacity + 3     //判断透明度
+  myDiv.style.filter = "Alpha(Opacity="  + Opacity + ")"//设置层的样式
+}
+function increOpa()                                     //透明度减小
+{
+  if (Opacity == 0)         
+  {
+    window.clearInterval(timer)                         //清空定时器
+    myDiv.style.display = "none"                        //屏蔽层的显示
+    return
+  }
+  Opacity = (Opacity - 3 < 0) ? 0 : Opacity - 3         //变更透明度
+  myDiv.style.filter = "Alpha(Opacity="  + Opacity + ")"//设置层的样式
+  
+}
+function btnChange()
+{
+  timer = window.setInterval('increOpa()', 5);          //设置定时器
+  myBtn.style.display='none';                           //屏蔽按钮的显示
+}
+</script>
+</head>
+<body topmargin=0 leftmargin=0>
+<div id=myDiv style="position:absolute;z-index:99; background-color:darkgray; Filter: Alpha(Opacity=0); border:1px solid #333333;display:none;width:100%;vertical-align:center;text-align:center">&nbsp;</div>
+<button onclick=hide()>hide</button>
+<button id=myBtn style="position:absolute; left:100;top:200;z-index:100;display:none" onclick="btnChange()">返回</button>
+<script>
+  for (var i=0; i<30; i++)
+  document.write ("<p>这是主要的页面，看看能不能动</p>")  //设置页面的内容，最好能超过一页，以看到屏蔽效果
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<script type="text/javascript"  src="prototype.js"></script>
+<script>
+    function test1() {
+        var d = $('myDiv');
+        alert(d.innerHTML);
+    }
+
+    function test2() {
+        var divs = $('myDiv','myOtherDiv');
+		var content = "";
+        for(i=0; i<divs.length; i++) {
+            content = content + divs[i].innerHTML +"\n";
+        }
+		alert(content);
+    }
+</script>
+</head>
+
+<body>
+ <div id="myDiv">
+        <p>This is a paragraph</p>
+    </div>
+    <div id="myOtherDiv">
+        <p>This is another paragraph</p>
+    </div>
+
+    <input type="button" value="Test1" onclick="test1();"><br>
+    <input type="button" value="Test2" onclick="test2();"><br>
+
+</body>
+</html>

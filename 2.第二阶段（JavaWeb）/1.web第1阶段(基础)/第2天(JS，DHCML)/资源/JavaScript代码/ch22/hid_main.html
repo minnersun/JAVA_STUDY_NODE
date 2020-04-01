@@ -1,0 +1,29 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+<script src="auto_save.js"></script>
+</head>
+
+<body>
+<form id="editor" name="editor" method="post" action="">
+  <label>标题
+  <input type="text" name="title" id="title" />
+  </label>
+  <p>
+    <label>内容
+    <textarea name="content" id="content" cols="45" rows="5"></textarea>
+    </label>
+  </p>
+  <p>
+    <label>
+    <input type="submit" name="button" id="button" value="发送" />
+    </label>
+  </p>
+</form>
+<script>
+autoSaver=new AutoSaver('editor',1);
+autoSaver.create();
+startCountOnly();
+</script>
+</body>
+</html>

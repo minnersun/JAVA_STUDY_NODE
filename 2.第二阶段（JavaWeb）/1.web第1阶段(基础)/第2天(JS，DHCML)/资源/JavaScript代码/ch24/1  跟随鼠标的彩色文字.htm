@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<STYLE>.spanstyle {
+	COLOR: #0066ff; FONT-FAMILY: 隶书; FONT-SIZE: 14pt; FONT-WEIGHT: normal; POSITION: absolute; TOP: -50px; VISIBILITY: visible
+}
+</STYLE>
+<SCRIPT language=javascript>
+	var message="欢 迎 参 加 北 京 奥 运 会 ！";  //要跟随鼠标的文本
+	var x,y;
+	var step=15;                                 //文本之间的距离
+	var flag=0;
+
+	message=message.split("");                   //将文本切换成数组
+	var xpos=new Array();
+	for (i=0;i<=message.length-1;i++) {          //设置所有文本的初始x坐标
+		xpos[i]=-50;
+	}
+	var ypos=new Array();
+	for (i=0;i<=message.length-1;i++) {          //设置所有文本的初始Y坐标
+		ypos[i]=-50;
+	}
+	function handlerXY(e) {
+	                                            //根据浏览器的不同，获取鼠标的x,y坐标
+		x = (document.layers) ? e.pageX : document.body.scrollLeft+event.clientX+10;
+		y = (document.layers) ? e.pageY : document.body.scrollTop+event.clientY;
+		flag=1;
+	}
+	function makesnake() {
+		if (flag==1 && document.all) {
+    			for (i=message.length-1; i>=1; i--) {
+   				xpos[i]=xpos[i-1]+step;        //设置文本之间的显示距离
+				ypos[i]=ypos[i-1];             //设置文本的y坐标
+    		}
+			xpos[0]=x+step;
+			ypos[0]=y;
+			for (i=0; i<=message.length-1; i++) {
+    				var thisspan = eval("span"+(i)+".style");
+    				thisspan.posLeft=xpos[i];
+				thisspan.posTop=ypos[i];
+				thisspan.color=Math.random() * 255 * 255 * 255 + Math.random() * 255 * 255 + Math.random() * 255;
+    			}
+		}
+		else if (flag==1 && document.layers) {
+    			for (i=message.length-1; i>=1; i--) {
+   				xpos[i]=xpos[i-1]+step;
+				ypos[i]=ypos[i-1];
+    			}
+			xpos[0]=x+step;
+			ypos[0]=y;
+
+			for (i=0; i<message.length-1; i++) //根据字符的个数创建多个span元素，用来显示字符
+			{
+    				var thisspan = eval("document.span"+i);
+    				thisspan.left=xpos[i];    //指定span的x坐标
+				thisspan.top=ypos[i];         //指定span的y坐标
+				                              //创建随机的颜色值
+				thisspan.color=Math.random() * 255 * 255 * 255 + Math.random() * 255 * 255 + Math.random() * 255;
+			}
+		}
+	}
+	for (i=0;i<=message.length-1;i++) {      //循环输出文本信息
+    		document.write("<span id='span"+i+"' class='spanstyle'>");
+		document.write(message[i]);
+    		document.write("</span>");
+	}
+
+	if (document.layers) {
+		document.captureEvents(Event.MOUSEMOVE);
+	}
+	document.onmousemove = handlerXY;
+	function firstLoad() {                   //窗体一加载便触发的事件
+		makesnake();                         //实现跟随鼠标文本的方法
+		window.setTimeout("firstLoad();", 5);//定时执行此方法
+	}
+</SCRIPT>
+</head>
+<body bgcolor="#fef4d9" onload=javascript:firstLoad()>
+</body>
+</html>

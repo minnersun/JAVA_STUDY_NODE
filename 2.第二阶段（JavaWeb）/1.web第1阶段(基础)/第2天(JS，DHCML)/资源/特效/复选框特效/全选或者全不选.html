@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>全选或者全不选</title>
+<script type="text/javascript">
+	function selectAll() {
+		var oEL = event.srcElement;
+		for(var i=0;i<document.all.length;i++) {
+			if(document.all(i).id.indexOf("checkbox") != -1) {
+				if(oEL.checked) {
+					document.all(i).checked = true;
+				} else {
+					document.all(i).checked = false;
+				}
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+<div align="center">
+	<input type="checkbox" id="checkbox1" value="a" />北京<br />
+    <input type="checkbox" id="checkbox2" value="b" />南京<br />
+    <input type="checkbox" id="checkbox3" value="c" />东京<br />
+    <input type="checkbox" id="checkbox4" value="d" />西京<br />
+    <input type="checkbox" id="checkbox5" onclick="selectAll()"/>全选或全不选<br />
+</div>
+</body>
+</html>

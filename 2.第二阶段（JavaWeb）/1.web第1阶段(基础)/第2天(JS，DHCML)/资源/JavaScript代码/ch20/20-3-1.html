@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Untitled Document</title>
+</head>
+<script>
+function createButton(){
+	var buttons = document.body.getElementsByTagName("IMG");
+	alert(buttons.length);
+	for(var i=0;i<buttons.length;i++){
+		var btn = buttons[i];
+		if(btn.getAttribute("class")!="AniBtn") continue;
+		btn.onmouseover=function (){
+			this.src=this.id+"_over.jpg";
+		}
+		btn.onmousedown=function (){
+			this.src=this.id+"_down.jpg";
+		}
+		btn.onmouseout=function (){
+			this.src=this.id+"_off.jpg";
+		}
+		btn.onmouseup=function (){
+			this.src=this.id+"_over.jpg";
+		}
+	}
+}
+</script>
+<body>
+<p>
+<img id="btn1" class="AniBtn" src="btn1_off.jpg" width="128" height="48">
+<img id="btn2" class="AniBtn" src="btn2_off.jpg" width="128" height="48">
+<img id="btn3" class="AniBtn" src="btn3_off.jpg" width="128" height="48">
+</p>
+</body>
+<script>
+createButton();
+</script>
+</html>

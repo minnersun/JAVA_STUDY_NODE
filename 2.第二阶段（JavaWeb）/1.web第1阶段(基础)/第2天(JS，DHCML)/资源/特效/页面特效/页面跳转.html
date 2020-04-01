@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>页面跳转</title>
+<script language="javascript">
+function back() {
+	history.go(-1); //后退一页
+}
+
+function forward() {
+	history.go(1);	//前进一页
+}
+
+function refresh() {
+	history.go(0); //刷新页面
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="后退" onclick="back()"  />
+<input type="button" value="刷新" onclick="refresh()"  />
+<input type="button" value="前进" onclick="forward()"  />
+</body>
+</html>
+
+
+<!-- 本例重点是history对象的使用 -->

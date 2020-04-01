@@ -1,0 +1,202 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<style>
+*{font-size:12px}
+.dragTable{
+	font-size:12px;
+	border-top:1px solid #3366cc;
+	margin-bottom: 10px;
+	width:100%;
+	background-color:#FFFFFF;
+}
+td{vertical-align:top;}
+.dragTR{
+	cursor:move;
+	color:#7787cc;
+	background-color:#e5eef9;
+	height:20px;
+	padding-left:5px;
+	font-weight:bold;
+}
+#parentTable{
+	border-collapse:collapse;
+	letter-spacing:25px;
+}
+</style>
+<script defer>
+var Drag={dragged:false,ao:null,tdiv:null,dragStart:function()
+{  //创建新的DIV
+	Drag.ao=event.srcElement;
+	if((Drag.ao.tagName=="TD")||(Drag.ao.tagName=="TR")){
+		Drag.ao=Drag.ao.offsetParent;
+		Drag.ao.style.zIndex=100;
+	}else
+		return;
+	Drag.dragged=true;
+	Drag.tdiv=document.createElement("div");
+	Drag.tdiv.innerHTML=Drag.ao.outerHTML;
+	Drag.ao.style.border="1px dashed red";
+	Drag.tdiv.style.display="block";
+	Drag.tdiv.style.position="absolute";
+	Drag.tdiv.style.filter="alpha(opacity=70)";
+	Drag.tdiv.style.cursor="move";
+	Drag.tdiv.style.border="1px solid #000000";
+	Drag.tdiv.style.width=Drag.ao.offsetWidth;
+	Drag.tdiv.style.height=Drag.ao.offsetHeight;
+	Drag.tdiv.style.top=Drag.getInfo(Drag.ao).top;
+	Drag.tdiv.style.left=Drag.getInfo(Drag.ao).left;
+	document.body.appendChild(Drag.tdiv);
+	Drag.lastX=event.clientX;
+	Drag.lastY=event.clientY;
+	Drag.lastLeft=Drag.tdiv.style.left;
+	Drag.lastTop=Drag.tdiv.style.top;
+},
+ draging:function(){   //判断鼠标的位置
+	if(!Drag.dragged||Drag.ao==null)return;
+	var tX=event.clientX;
+	var tY=event.clientY;
+	Drag.tdiv.style.left=parseInt(Drag.lastLeft)+tX-Drag.lastX;
+	Drag.tdiv.style.top=parseInt(Drag.lastTop)+tY-Drag.lastY;
+	for(var i=0;i<parentTable.cells.length;i++){
+		var parentCell=Drag.getInfo(parentTable.cells[i]);
+		if(tX>=parentCell.left&&tX<=parentCell.right&&tY>=parentCell.top&&tY<=parentCell.bottom){
+			var subTables=parentTable.cells[i].getElementsByTagName("table");
+			if(subTables.length==0){
+				if(tX>=parentCell.left&&tX<=parentCell.right&&tY>=parentCell.top&&tY<=parentCell.bottom){
+					parentTable.cells[i].appendChild(Drag.ao);
+				}
+				break;
+			}
+			for(var j=0;j<subTables.length;j++){
+				var subTable=Drag.getInfo(subTables[j]);
+				if(tX>=subTable.left&&tX<=subTable.right&&tY>=subTable.top&&tY<=subTable.bottom){
+					parentTable.cells[i].insertBefore(Drag.ao,subTables[j]);
+					break;
+				}else{
+					parentTable.cells[i].appendChild(Drag.ao);
+				}	
+			}
+		}
+	}
+},
+ dragEnd:function(){  //拖拽完毕
+	if(!Drag.dragged)return;
+	Drag.dragged=false;
+	Drag.mm=Drag.repos(150,15);
+	Drag.ao.style.borderWidth="0px";
+	Drag.ao.style.borderTop="1px solid #3366cc";
+	Drag.tdiv.style.borderWidth="0px";
+	Drag.ao.style.zIndex=1;
+},
+getInfo:function(o){     //取得坐标
+	var to=new Object();
+	to.left=to.right=to.top=to.bottom=0;
+	var twidth=o.offsetWidth;
+	var theight=o.offsetHeight;
+	while(o!=document.body){
+		to.left+=o.offsetLeft;
+		to.top+=o.offsetTop;
+		o=o.offsetParent;
+	}
+		to.right=to.left+twidth;
+		to.bottom=to.top+theight;
+	return to;
+},
+repos:function(aa,ab){
+	var f=Drag.tdiv.filters.alpha.opacity;
+	var tl=parseInt(Drag.getInfo(Drag.tdiv).left);
+	var tt=parseInt(Drag.getInfo(Drag.tdiv).top);
+	var kl=(tl-Drag.getInfo(Drag.ao).left)/ab;
+	var kt=(tt-Drag.getInfo(Drag.ao).top)/ab;
+	var kf=f/ab;
+	return setInterval(function(){if(ab<1){
+							clearInterval(Drag.mm);
+							Drag.tdiv.removeNode(true);
+							Drag.ao=null;
+							return;
+						}
+					ab--;
+					tl-=kl;
+					tt-=kt;
+					f-=kf;
+					Drag.tdiv.style.left=parseInt(tl)+"px";
+					Drag.tdiv.style.top=parseInt(tt)+"px";
+					Drag.tdiv.filters.alpha.opacity=f;
+				},aa/ab)
+},
+ inint:function(){   //初始化表格
+	for(var i=0;i<parentTable.cells.length;i++){
+		var subTables=parentTable.cells[i].getElementsByTagName("table");
+		for(var j=0;j<subTables.length;j++){
+			if(subTables[j].className!="dragTable")break;
+			subTables[j].rows[0].className="dragTR";
+			subTables[j].rows[0].attachEvent("onmousedown",Drag.dragStart);
+		}
+	}
+	document.onmousemove=Drag.draging;
+	document.onmouseup=Drag.dragEnd;
+}
+}
+Drag.inint();
+</script>
+</head>
+<body>
+   <table border="0" cellpadding="0" cellspacing="10" width="100%" height=480 id="parentTable">
+<tr >
+	<td width="25%" valgin="top">
+		<table border=0 class="dragTable" cellspacing="0">
+			<tr>
+				<td><b>天气预报</b></td>
+			</tr>
+			<tr>
+				<td>本地近3天持续降温，请注意防寒</td>
+			<tr>
+		</table><table border=0 class="dragTable" cellspacing="0">
+			<tr>
+				<td>我的日记</td>
+			</tr>
+			<tr>
+				<td>今天天气非常美好<br/> 逛街购物+shopping,满北京城的抛。忙得找不到北。坐功其到地铁</td>
+			<tr>
+		</table>
+		<table border=0 class="dragTable" cellspacing="0">
+			<tr>
+				<td>新闻</td>
+			</tr>
+			<tr>
+				<td>对许多国人来说，五一是又一个消费和休息的好时光，而对某些人来说它并不意味着假期……这七天，一些人迎来了人生中的巨大成就，一些人仍在一线辛勤劳作，一些人遭遇天灾人祸不幸遇难，也有一些人因为拯救别人而失去了珍贵的生命……人们复杂的命运故事并不因为假期而中断，看看这七天你离开的时候，那些大人物或者小人物身上又发生了什么样的新故事</td>
+			<tr>
+		</table>
+	</td>
+	<td width="25%">
+		<table border=0 class="dragTable" cellspacing="0">
+			<tr>
+				<td>体育</td>
+			</tr>
+			<tr>
+				<td>安全意识游客在出行前应事先了解当地背景资料，挑选合适的时间、地点，做好身体、精神、物资和全面救助的准备。</td>
+			<tr>
+		</table></td>
+	<td width="25%">
+		<table border=0 class="dragTable" cellspacing="0">
+			<tr>
+				<td>娱乐</td>
+			</tr>
+			<tr>
+				<td>制定预案设计线路尽量靠近公路，保证救援人员能够及时到达。尽量选择村庄和登山大本营等作为宿营地，尽量不安排露营。发生任何身体不适应立即休息。</td>
+			<tr>
+		</table>		<table border=0 class="dragTable" cellspacing="0">
+			<tr>
+				<td>八卦</td>
+			</tr>
+			<tr>
+				<td>5月1日下午武汉中山公园“峡谷漂流”中两艘漂流筏相撞导致翻船，造成2人重伤，4人轻伤。</td>
+			<tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+</body>
+</html>

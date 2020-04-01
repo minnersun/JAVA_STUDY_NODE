@@ -1,0 +1,27 @@
+<html>
+  <head>
+  	<title>HTML元素</title>
+  </head>
+  <body>
+  	<h1>HTML元素</h1>
+  	<form name="my">
+  		<input type="button" value="按钮" id="my">
+  	</form>
+  	<a name="my"></a>
+  	<script language="JavaScript" type="text/javascript">
+  		<!--
+  		    var nNumber = document.all.item("my").length;
+  		    document.write("名称为my的HTML元素对象数量为："+nNumber+"<br>");
+  		    if(nNumber==0){
+  		        document.write("名称为my的HTML元素对象不存在");
+  		    }else{
+	  		    document.write("名称为my的HTML元素对象有：");
+	  		    for(var i=0;i<nNumber;i++)
+	  		    {
+	  		       document.write(document.all.item("my")[i].tagName+" ");
+	  		    }   
+  		    }
+   		//-->
+  	</script>
+  </body>
+</html>

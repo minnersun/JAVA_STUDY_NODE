@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>去除字符串前后的空格</title>
+<script type="text/javascript">
+function KillSpace(txtvalue) {
+	alert("11111111111111111");
+	alert(txtvalue.value.length+"bbbbbbbbbbbbbb");
+	//判断文本内容是否为空，判断第一个字符是否为空
+	if((txtvalue.value.length > 0 ) && (txtvalue.value.charAt(0) == ' ')) {
+		txtvalue.value = txtvalue.value.substring(1,txtvalue.value.length);
+	}
+	
+	//判断文本的长度
+	if((txtvalue.value.length > 0 ) && (txtvalue.value.charAt(txtvalue.value.length-1) == ' ')) {
+		txtvalue.value = txtvalue.value.substring(0,txtvalue.value.length-1);
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="text" name="cutSpacing" value=" 空格 "  /><br />
+<input type="button" value="去除空格" name="username" onclick="KillSpace(cutSpacing)" />
+</body>
+</html>

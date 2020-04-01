@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script type="text/javascript" language="javascript">
+
+http_request = null ;
+if (window.XMLHttpRequest) { // Mozilla, Safari,
+	http_request = new XMLHttpRequest();
+	if(http_request.overrideMimeType){
+		http_request.overrideMimeType('text/xml');
+	}
+} else if (window.ActiveXObject) { // IE
+	try {
+		http_request = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+		try {
+			http_request = new ActiveXObject("Microsoft.XMLHTTP");
+		} catch (e) {}
+	}
+}
+
+if (http_request==null) {
+	alert("浏览器不支持AJAX");
+}
+
+http_request.onreadystatechange = onReceived;
+
+function onReceived(){
+	if (http_request.readyState == 4) { 
+		// 一切就绪，服务器响应
+		// 并且数据已接收完成
+		if (http_request.status == 200 || http_request.status == 0) { 
+			// 成功获得数据！
+			var requestContent = http_request.responseText ;
+			alert(requestContent);
+		}else if(http_request.status == 404 || http_request.status == 2){
+		    alert("404(Not Found)，未找到请求的文件");
+		}else { 
+			alert("请求数据过程出现错误!("+http_request.status+")");
+		}
+	} else {
+       //尚未就绪
+	}	
+}
+
+function requestContent(url){
+    if(http_request==null){
+		alert("http_request 未初始化");
+		return;
+	}
+	http_request.open("GET", url, true);
+	http_request.send(null);
+}
+</script>
+<title>Untitled Document</title>
+</head>
+<body>
+<p>点击下面的按钮发出请求：<br />
+  <label>
+  <input type="submit" name="Submit" value="发送请求" onClick="requestContent('simple.txt');"/>
+  </label>
+</p>
+</body>
+</html>

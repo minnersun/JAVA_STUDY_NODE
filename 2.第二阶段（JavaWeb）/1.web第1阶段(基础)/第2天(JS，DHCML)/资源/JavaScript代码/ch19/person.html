@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="person.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h1>Person Name is:
+  <script>document.write(person.name);</script>
+</h1>
+<h1>Person Sex is:
+  <script>document.write(person.sex);</script>
+</h1>
+<h1>Person Age is:
+  <script>document.write(person.age);</script>
+</h1>
+<p>Person
+  <input name="personState" type="text" id="personState" size="10" /> 
+  ,Speed:
+  <label>
+  <input name="personSpeed" type="text" id="personSpeed" size="10" />
+  </label>
+  M/S
+</p>
+<p>
+  <input type="button" value="walk" onClick="person.walk();personState.value=person.state;personSpeed.value=person.speed;"/>
+  <input name="button" type="button" value="faster" onClick="person.faster();personState.value=person.state;personSpeed.value=person.speed;"/>
+  <input name="button2" type="button" value="slower" onClick="person.slower();personState.value=person.state;personSpeed.value=person.speed;"/>
+  <input name="button3" type="button" value="stop" onClick="person.stopWalking();personState.value=person.state;personSpeed.value=person.speed;"/>
+</p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+</head>
+<body>
+<form name="form1">
+<select name="city" style="width:100%" id="citylist">
+     <option value="beijing">北京</option>
+     <option value="shanghai">上海</option>
+     <option value="guangzhou">广州</option>
+</select>
+</form>
+<script>
+function showSelectedCity(){
+	var element = document.all["city"];
+	alert(element.value);
+}
+</script>
+<p><a href="#" onClick="showSelectedCity()">显示选择的内容</a></p>
+</body>
+</html>

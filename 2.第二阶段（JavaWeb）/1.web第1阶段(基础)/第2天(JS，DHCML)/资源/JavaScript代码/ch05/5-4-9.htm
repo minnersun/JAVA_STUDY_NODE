@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>标签跳转结构语句</title>
+  </head>
+  <body>
+    <h1>标签跳转结构语句</h1>
+    <script language="JavaScript" type="text/javascript">
+    <!--
+      var i;
+      var j;
+      mylabel1:
+      for (i= 1; i<= 5; i++)
+      {
+        mylabel2:
+      for (j= 1; j<= 4; j++)
+        {
+          if (j == 3)
+          {
+            continue mylabel2;
+          }
+          if (i == 3)
+          {
+            break mylabel1;
+          }
+          document.write("i的值为："+i+" ");
+          document.write("j的值为："+j+"<br>");     
+        }
+      }
+    //-->
+    </script>
+  </body>
+</html>

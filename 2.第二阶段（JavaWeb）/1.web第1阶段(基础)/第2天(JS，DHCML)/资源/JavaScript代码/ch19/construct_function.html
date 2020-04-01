@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="construct_function.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+aTeam = createTeam("demo team");
+aTeam.addMember(createPerson("Mike","male",40));
+aTeam.addMember(createPerson("Vivi","female",30));
+aTeam.addMember(createPerson("Elvis","male",20));
+aTeam.addMember(createPerson("Hans","male",32));
+aTeam.addMember(createPerson("James","male",22));
+aTeam.leader = createPerson("Zimmer","male",44);
+</script>
+<table width="297" border="1">
+  <tr>
+    <td>Team:</td>
+    <td><script>document.write(aTeam.name);</script></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Leader:</td>
+    <td><script>document.write(aTeam.leader.name);</script></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">Member : </td>
+    <td bgcolor="#CCCCCC">&nbsp;</td>
+    <td bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong>Name</strong></td>
+    <td><strong>Sex</strong></td>
+    <td><strong>Age</strong></td>
+  </tr>
+  <script>
+  for(var i=0;i<aTeam.count();i++){
+  	document.write("<tr>");
+	document.write("<td>");
+	document.write(aTeam.members[i].name);
+	document.write("</td>");
+	document.write("<td>");
+	document.write(aTeam.members[i].sex);
+	document.write("</td>");
+	document.write("<td>");
+	document.write(aTeam.members[i].age);
+	document.write("</td>");
+	document.write("</tr>");
+  }
+  </script>
+</table>
+</body>
+</html>
