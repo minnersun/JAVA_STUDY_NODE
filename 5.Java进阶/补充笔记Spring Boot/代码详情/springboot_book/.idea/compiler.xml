@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="chapter9-3" />
+        <module name="chapter8-6" />
+        <module name="chapter8-5" />
+        <module name="chapter8-4" />
+        <module name="chapter8-3" />
+        <module name="chapter8-2" />
+        <module name="chapter8-1" />
+        <module name="chapter11-4" />
+        <module name="springboot-blog-api" />
+        <module name="chapter11-6" />
+        <module name="chapter3-3" />
+        <module name="chapter3-4" />
+        <module name="chapter4-3-8" />
+        <module name="chapter11-10" />
+        <module name="chapter3-8" />
+        <module name="chapter7-2" />
+        <module name="chapter7-1" />
+        <module name="chapter11-5" />
+        <module name="chapter3-5-2" />
+        <module name="chapter6-4" />
+        <module name="chapter6-3" />
+        <module name="chapter6-2" />
+        <module name="chapter6-1" />
+        <module name="chapter4-5-2" />
+        <module name="chapter4-5-1" />
+        <module name="chapter11-3" />
+        <module name="springboot-blog-mgr" />
+        <module name="chapter4-4-9" />
+        <module name="chapter4-4-8" />
+        <module name="chapter4-4-7" />
+        <module name="chapter3-5-3" />
+        <module name="chapter12-4" />
+        <module name="chapter3-5-1" />
+        <module name="chapter3-7" />
+        <module name="chapter14" />
+        <module name="chapter13" />
+        <module name="chapter11-9" />
+        <module name="chapter4-6" />
+        <module name="chapter4-4" />
+        <module name="chapter4-3" />
+        <module name="chapter4-2" />
+        <module name="chapter5-2" />
+        <module name="blogmgrmodel" />
+        <module name="blogmodel" />
+        <module name="chapter11-8" />
+        <module name="chapter11-7" />
+        <module name="chapter10-1" />
+        <module name="springboot-blog-web" />
+        <module name="chapter3-6" />
+        <module name="chapter5-3" />
+        <module name="chapter11-2" />
+        <module name="chapter11-1" />
+        <module name="chapter3-2" />
+        <module name="chapter3-1" />
+        <module name="chapter9-1" />
+        <module name="chapter10-2" />
+        <module name="chapter9-2" />
+        <module name="chapter5-1" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="blogmgrmodel" target="1.8" />
+      <module name="blogmodel" target="1.8" />
+      <module name="chapter10-1" target="1.8" />
+      <module name="chapter10-2" target="1.8" />
+      <module name="chapter11-1" target="1.8" />
+      <module name="chapter11-10" target="1.8" />
+      <module name="chapter11-2" target="1.8" />
+      <module name="chapter11-3" target="1.8" />
+      <module name="chapter11-4" target="1.8" />
+      <module name="chapter11-5" target="1.8" />
+      <module name="chapter11-6" target="1.8" />
+      <module name="chapter11-7" target="1.8" />
+      <module name="chapter11-8" target="1.8" />
+      <module name="chapter11-9" target="1.8" />
+      <module name="chapter12-4" target="1.8" />
+      <module name="chapter13" target="1.8" />
+      <module name="chapter14" target="1.8" />
+      <module name="chapter3-1" target="1.8" />
+      <module name="chapter3-2" target="1.8" />
+      <module name="chapter3-3" target="1.8" />
+      <module name="chapter3-4" target="1.8" />
+      <module name="chapter3-5-1" target="1.8" />
+      <module name="chapter3-5-2" target="1.8" />
+      <module name="chapter3-5-3" target="1.8" />
+      <module name="chapter3-6" target="1.8" />
+      <module name="chapter3-7" target="1.8" />
+      <module name="chapter3-8" target="1.8" />
+      <module name="chapter4-2" target="1.8" />
+      <module name="chapter4-3" target="1.8" />
+      <module name="chapter4-3-8" target="1.8" />
+      <module name="chapter4-4" target="1.8" />
+      <module name="chapter4-4-7" target="1.8" />
+      <module name="chapter4-4-8" target="1.8" />
+      <module name="chapter4-4-9" target="1.8" />
+      <module name="chapter4-5-1" target="1.8" />
+      <module name="chapter4-5-2" target="1.8" />
+      <module name="chapter4-6" target="1.8" />
+      <module name="chapter5-1" target="1.8" />
+      <module name="chapter5-2" target="1.8" />
+      <module name="chapter5-3" target="1.8" />
+      <module name="chapter6-1" target="1.8" />
+      <module name="chapter6-2" target="1.8" />
+      <module name="chapter6-3" target="1.8" />
+      <module name="chapter6-4" target="1.8" />
+      <module name="chapter7-1" target="1.8" />
+      <module name="chapter7-2" target="1.8" />
+      <module name="chapter8-1" target="1.8" />
+      <module name="chapter8-2" target="1.8" />
+      <module name="chapter8-3" target="1.8" />
+      <module name="chapter8-4" target="1.8" />
+      <module name="chapter8-5" target="1.8" />
+      <module name="chapter8-6" target="1.8" />
+      <module name="chapter9-1" target="1.8" />
+      <module name="chapter9-2" target="1.8" />
+      <module name="chapter9-3" target="1.8" />
+      <module name="springboot-blog-api" target="1.5" />
+      <module name="springboot-blog-mgr" target="1.8" />
+      <module name="springboot-blog-web" target="1.8" />
+      <module name="springboot_book" target="1.5" />
+      <module name="springbootblog" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="blogmgrmodel" options="-parameters" />
+      <module name="blogmodel" options="-parameters" />
+      <module name="chapter10-1" options="-parameters" />
+      <module name="chapter10-2" options="-parameters" />
+      <module name="chapter11-1" options="-parameters" />
+      <module name="chapter11-10" options="-parameters" />
+      <module name="chapter11-2" options="-parameters" />
+      <module name="chapter11-3" options="-parameters" />
+      <module name="chapter11-4" options="-parameters" />
+      <module name="chapter11-5" options="-parameters" />
+      <module name="chapter11-6" options="-parameters" />
+      <module name="chapter11-7" options="-parameters" />
+      <module name="chapter11-8" options="-parameters" />
+      <module name="chapter11-9" options="-parameters" />
+      <module name="chapter12-4" options="-parameters" />
+      <module name="chapter13" options="-parameters" />
+      <module name="chapter14" options="-parameters" />
+      <module name="chapter3-1" options="-parameters" />
+      <module name="chapter3-2" options="-parameters" />
+      <module name="chapter3-3" options="-parameters" />
+      <module name="chapter3-4" options="-parameters" />
+      <module name="chapter3-5-1" options="-parameters" />
+      <module name="chapter3-5-2" options="-parameters" />
+      <module name="chapter3-5-3" options="-parameters" />
+      <module name="chapter3-6" options="-parameters" />
+      <module name="chapter3-7" options="-parameters" />
+      <module name="chapter3-8" options="-parameters" />
+      <module name="chapter4-2" options="-parameters" />
+      <module name="chapter4-3" options="-parameters" />
+      <module name="chapter4-3-8" options="-parameters" />
+      <module name="chapter4-4" options="-parameters" />
+      <module name="chapter4-4-7" options="-parameters" />
+      <module name="chapter4-4-8" options="-parameters" />
+      <module name="chapter4-4-9" options="-parameters" />
+      <module name="chapter4-5-1" options="-parameters" />
+      <module name="chapter4-5-2" options="-parameters" />
+      <module name="chapter4-6" options="-parameters" />
+      <module name="chapter5-1" options="-parameters" />
+      <module name="chapter5-2" options="-parameters" />
+      <module name="chapter5-3" options="-parameters" />
+      <module name="chapter6-1" options="-parameters" />
+      <module name="chapter6-2" options="-parameters" />
+      <module name="chapter6-3" options="-parameters" />
+      <module name="chapter6-4" options="-parameters" />
+      <module name="chapter7-1" options="-parameters" />
+      <module name="chapter7-2" options="-parameters" />
+      <module name="chapter8-1" options="-parameters" />
+      <module name="chapter8-2" options="-parameters" />
+      <module name="chapter8-3" options="-parameters" />
+      <module name="chapter8-4" options="-parameters" />
+      <module name="chapter8-5" options="-parameters" />
+      <module name="chapter8-6" options="-parameters" />
+      <module name="chapter9-1" options="-parameters" />
+      <module name="chapter9-2" options="-parameters" />
+      <module name="chapter9-3" options="-parameters" />
+      <module name="springboot-blog-mgr" options="-parameters" />
+      <module name="springboot-blog-web" options="-parameters" />
+    </option>
+  </component>
+</project>

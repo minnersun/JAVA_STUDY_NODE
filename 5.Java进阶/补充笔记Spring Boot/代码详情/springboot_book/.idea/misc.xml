@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/chapter11-4" />
+    <file type="web" url="file://$PROJECT_DIR$/chapter12-4" />
+    <file type="web" url="file://$PROJECT_DIR$/chapter3-5-3" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/chapter3-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter3-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter3-3/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter3-4/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter3-5-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter3-5-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter3-5-3/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter3-6/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter3-8/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter3-7/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-3/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-3-8/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-4/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-4-7/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter-4-4-8/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-4-9/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-4-8/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter5-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter5-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter5-3/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter6-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter6-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter6-3/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter8-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter7-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter7-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter8-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter8-3/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter8-4/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter8-5/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11-4/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter10-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter10-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter12-4/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter9-3/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter9-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter9-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11-5/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11-6/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11-7/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11-8/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11-9/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11-3/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11-10/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter8-6/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter6-4/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter13/pom.xml" />
+        <option value="$PROJECT_DIR$/blogmodel/pom.xml" />
+        <option value="$PROJECT_DIR$/springbootblog/pom.xml" />
+        <option value="$PROJECT_DIR$/springbootblog/springboot-blog-api/pom.xml" />
+        <option value="$PROJECT_DIR$/springbootblog/springboot-blog-web/pom.xml" />
+        <option value="$PROJECT_DIR$/springbootblog/springboot-blog-mgr/pom.xml" />
+        <option value="$PROJECT_DIR$/blogmgrmodel/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter14/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-6/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-5/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-5-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter4-5-1/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/springbootblog/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
