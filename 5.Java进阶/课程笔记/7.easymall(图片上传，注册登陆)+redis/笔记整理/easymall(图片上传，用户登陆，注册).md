@@ -1,4 +1,4 @@
-## easymall+redisAM
+## easymall+redis
 
 ----
 

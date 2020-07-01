@@ -99,6 +99,7 @@ mybatis.check-config-location=true
 mybatis.config-location=classpath://mybatis/mybatis-config.xml
 # mapper xml文件地址
 mybatis.mapper-locations=classpath*:/mapper/*.xml
+
 # 日志级别
 logging.level.com.springboot.dao.UserMapper=debug
 
