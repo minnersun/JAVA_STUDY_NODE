@@ -143,16 +143,6 @@ import org.springframework.stereotype.Service;
 import xdclass_websocket.model.InMessage;
 import xdclass_websocket.model.OutMessage;
 
-/**
- * 
- * 功能描述：简单消息模板，用来推送消息
- *
- * <p> 创建时间：Jan 4, 2018 </p> 
- * <p> 贡献者：小D学院, 官网：www.xdclass.net </p>
- *
- * @author <a href="mailto:xd@xdclass.net">小D老师</a>
- * @since 0.0.1
- */
 @Service
 public class WebSocketService {
 
@@ -436,7 +426,6 @@ public class V3ChatRoomContoller {
                     
                     <input type="text" id="content" class="form-control" placeholder="请输入...">
                     
-                    
                 </div>
                 <button id="send" class="btn btn-default" type="submit">发送</button>
             </form>
@@ -520,3 +509,236 @@ $(function () {
 
 
 ```
+
+
+
+### websocket定时推送，实时监测jvm负载
+
+> 需要在springboot启动类上`@EnableScheduling`
+>
+> 在controller的类方法上标注 `@Scheduled(fixedRate = 3000) `表示这个方法会定时执行 `fixedRate`表示是多少毫秒 3000就3秒 
+>
+> > 被注解`@Scheduled`标记的方法，是不能有参数，不然会报错 
+
+#### src/main/java/Application.java
+
+```java
+package xdclass_websocket;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
+//springboot启动类
+@ComponentScan(basePackages="xdclass_websocket")
+@SpringBootApplication
+@EnableScheduling
+public class Application {
+	public static void main(String [] args){
+		SpringApplication.run(Application.class);
+	}
+}
+```
+
+#### src/main/java
+
+##### src/main/java/xdclass_websocket/controller/v4
+
+###### V4ServerInfoController.java
+
+```java
+package xdclass_websocket.controller.v4;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Controller;
+
+import xdclass_websocket.model.InMessage;
+import xdclass_websocket.service.WebSocketService;
+/**
+ * 功能描述： 实时推送服务器的JVM负载，已用内存等消息
+ */
+
+@Controller
+public class V4ServerInfoController {
+	@Autowired
+	private WebSocketService ws;
+	
+	@MessageMapping("/v4/schedule/push")
+	@Scheduled(fixedRate = 3000)  //方法不能加参数 
+	public void sendServerInfo(){
+		ws.sendServerInfo();
+	}
+}
+```
+
+##### src/main/java/xdclass_websocket/service/
+
+###### WebSocketService.java
+
+```java
+package xdclass_websocket.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Service;
+
+import xdclass_websocket.model.InMessage;
+import xdclass_websocket.model.OutMessage;
+
+
+/**
+ * 
+ * 功能描述：简单消息模板，用来推送消息
+ *
+ * <p> 创建时间：Jan 4, 2018 </p> 
+ * <p> 贡献者：小D学院, 官网：www.xdclass.net </p>
+ *
+ * @author <a href="mailto:xd@xdclass.net">小D老师</a>
+ * @since 0.0.1
+ */
+@Service
+public class WebSocketService {
+	@Autowired
+	private SimpMessagingTemplate template;
+
+	public void sendTopicMessage(String dest, InMessage message) throws InterruptedException{
+		for(int i=0; i<20; i++){
+			Thread.sleep(500L);
+			template.convertAndSend(dest, new OutMessage(message.getContent()+i));
+		}
+	}
+
+	public void sendChatMessage(InMessage message) {
+		template.convertAndSend("/chat/single/"+message.getTo(),
+				new OutMessage(message.getFrom()+" 发送:"+ message.getContent()));
+	}
+
+	/**
+	 * 功能描述：获取系统信息，推送给客户端
+	 */
+	public void sendServerInfo() {
+
+		int processors = Runtime.getRuntime().availableProcessors();
+		
+		Long freeMem = Runtime.getRuntime().freeMemory();
+		
+		Long maxMem = Runtime.getRuntime().maxMemory();
+		
+		String message = String.format("服务器可用处理器:%s; 虚拟机空闲内容大小: %s; 最大内存大小: %s", processors,freeMem,maxMem );
+		
+		template.convertAndSend("/topic/server_info",new OutMessage(message));
+		
+	}
+}
+```
+
+#### src/main/resources/static/v4
+
+###### index.html
+
+```html
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+    <title>Hello WebSocket</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/v4/main.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/v4/app.js"></script>
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="connect">建立连接通道:</label>
+                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
+                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>记录</th>
+                </tr>
+                </thead>
+                <tbody id="notice">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+```
+
+###### app.js
+
+```js
+var stompClient = null;
+
+function setConnected(connected) {
+    $("#connect").prop("disabled", connected);
+    $("#disconnect").prop("disabled", !connected);
+    if (connected) {
+        $("#conversation").show();
+    }
+    else {
+        $("#conversation").hide();
+    }
+    $("#notice").html("");
+}
+
+function connect() {
+	var socket = new SockJS('/endpoint-websocket');
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, function (frame) {
+        setConnected(true);
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/server_info', function (result) {
+        	showContent(JSON.parse(result.body));
+        });
+    });
+}
+
+function disconnect() {
+    if (stompClient !== null) {
+        stompClient.disconnect();
+    }
+    setConnected(false);
+    console.log("Disconnected");
+}
+
+function sendName() {
+    stompClient.send("/app/v4/schedule/push", {}, JSON.stringify({'content': $("#content").val(), 'to':$("#to").val(), 'from':$("#from").val()}));
+}
+
+function showContent(body) {
+    $("#notice").prepend("<tr><td>" + body.content + "</td> <td>"+new Date(body.time).toLocaleString()+"</td></tr>");
+}
+
+$(function () {
+    $("form").on('submit', function (e) {
+        e.preventDefault();
+    });
+    $( "#connect" ).click(function() { connect(); });
+    $( "#disconnect" ).click(function() { disconnect(); });
+    $( "#send" ).click(function() { sendName(); });
+});
+```
+
