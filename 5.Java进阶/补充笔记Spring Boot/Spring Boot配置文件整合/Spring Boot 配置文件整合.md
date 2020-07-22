@@ -216,6 +216,7 @@ spring.thymeleaf.suffix=.html
 		</dependency>
 		
 		<!--jackson-->
+		<!--试用案例：WebSocket项目启动失败时添加jackson包后成功运行-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -259,5 +260,7 @@ spring.thymeleaf.suffix=.html
             <artifactId>jquery</artifactId>
             <version>3.1.0</version>
         </dependency>
+
+	
 
 ```
