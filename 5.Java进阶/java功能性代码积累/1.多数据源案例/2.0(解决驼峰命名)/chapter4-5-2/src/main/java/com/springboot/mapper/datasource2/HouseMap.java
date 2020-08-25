@@ -1,4 +1,11 @@
 package com.springboot.mapper.datasource2;
 
-public interface CityMap {
+import com.springboot.entity.datasource2.House;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface HouseMap {
+    List<House> getAllHouse();
 }

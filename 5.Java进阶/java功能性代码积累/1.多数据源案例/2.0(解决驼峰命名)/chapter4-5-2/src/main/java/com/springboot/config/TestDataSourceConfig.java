@@ -18,12 +18,6 @@ import javax.sql.DataSource;
         sqlSessionTemplateRef = "sqlSessionTemplatePrimary")
 public class TestDataSourceConfig {
 
-//    @Bean
-//    @ConfigurationProperties(prefix = "mybatis.configuration.map-underscore-to-camel-case")
-//    public org.apache.ibatis.session.Configuration configuration(){
-//        return new org.apache.ibatis.session.Configuration();
-//    }
-
     @Bean(name = "sqlSessionFactoryPrimary")
     @Primary
     public SqlSessionFactory masterSqlSessionFactory(@Qualifier("testDataSource") DataSource dataSource) throws Exception {

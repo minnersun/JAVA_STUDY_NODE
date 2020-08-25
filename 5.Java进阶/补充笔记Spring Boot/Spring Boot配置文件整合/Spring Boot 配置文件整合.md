@@ -5,7 +5,7 @@
 ### application.properties
 
 ```properties
-# 配置端口号：（第三章）
+# 配置端口号
 server.port=10004
 
 # 自定义属性
@@ -34,7 +34,7 @@ book.random=${book.value}
 # 数据库驱动
 spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
 # 数据库地址
-spring.datasource.url=jdbc:mysql://101.200.42.195:3306/easydb?useUnicode=true&characterEncoding=utf8&useSSL=false
+spring.datasource.url=jdbc:mysql://101.300.42.15:3306/testdb?useUnicode=true&characterEncoding=utf8&useSSL=false
 # 数据库用户名
 spring.datasource.username=root
 # 数据库密码

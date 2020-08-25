@@ -23,7 +23,7 @@ public class Test2DataSourceConfig {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
 
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/datasource/*.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/datasource2/*.xml"));
         return bean.getObject();
     }
 

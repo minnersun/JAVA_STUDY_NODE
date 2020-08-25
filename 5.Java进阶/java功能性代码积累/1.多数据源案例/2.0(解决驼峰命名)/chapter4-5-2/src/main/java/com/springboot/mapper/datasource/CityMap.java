@@ -1,4 +1,10 @@
 package com.springboot.mapper.datasource;
 
-public class CityMap {
+import com.springboot.entity.datasource.City;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public interface CityMap {
+    List<City> getAllCity();
 }

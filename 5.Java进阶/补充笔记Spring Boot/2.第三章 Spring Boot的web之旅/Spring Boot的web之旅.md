@@ -16,8 +16,6 @@
 >
 > > 是`@RequestMapping(method = RequestMethod.GET)`的缩写
 
-> 可见代码详情：3-1
-
 ###### 案例
 
 ###### TestController.java
@@ -352,14 +350,4 @@ spring.thymeleaf.suffix=.html
             <artifactId>jstl</artifactId>
         </dependency>
 ```
-
-
-
-### 文件的上传和下载
-
-##### 单个文件上传
-
-##### 批量上传
-
-##### 下载方法
 
